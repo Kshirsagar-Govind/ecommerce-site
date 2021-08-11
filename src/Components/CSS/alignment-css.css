@@ -1,0 +1,7 @@
+.flex {
+  display: flex;
+  align-items: center;
+}
+.h10_margin {
+  margin: 0px 10px;
+}
