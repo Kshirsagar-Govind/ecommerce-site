@@ -401,20 +401,35 @@ body {
 .RateMeter {
   width: max-content;
   height: fit-content;
-  margin: 10px 0px;
+  margin: 20px 0px;
 }
-
-/* PRODUCT CARD */
-.ProductCard {
+.product_div {
   position: relative;
+  background-color: var(--pure);
+  box-shadow: var(--shadow_1);
   width: 300px;
   height: 350px;
   border-radius: 8px;
-  background-color: var(--pure);
-  box-shadow: var(--shadow_1);
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+/* PRODUCT CARD */
+.ProductCard {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  border-radius: 8px;
   transition: 0.3s;
   cursor: pointer;
-  margin: 10px 0px;
+}
+
+.ProductCardDetail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: 0%;
+  border-radius: 8px;
 }
 
 .ProductCard > img {

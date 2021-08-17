@@ -4,6 +4,8 @@ import "../Components/CSS/master-css.css";
 import AddvertiseSection from "./Containers/[ Container ]addSection";
 import ProductCard from "./Containers/[ Container ]productCard";
 import axios from "axios";
+import { connect, Connect } from "react-redux";
+import { getAllProduct } from "../Services/Actions/[ Product ] getAllProductsData";
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -13,21 +15,20 @@ class HomeScreen extends Component {
     };
   }
 
-  componentDidMount = async () => {
-    const result = await axios.get(
-      "http://localhost:5500/gameshop/get-product-data"
-    );
-    console.log(result.data.data);
-    this.setState({
-      products: result.data.data,
-    });
-  };
+  componentDidMount() {
+    this.props.getAllProductsData();
+    if (this.props.all_products.data !== undefined) {
+      this.setState({
+        products: this.props.all_products.data,
+      });
+    }
+  }
 
-  shouldComponentUpdate() {
-    if (this.state.products !== undefined) {
-      return true;
-    } else {
-      return false;
+  componentDidUpdate(nextProps) {
+    if (this.props !== nextProps) {
+      this.setState({
+        products: this.props.all_products.data,
+      });
     }
   }
 
@@ -44,7 +45,6 @@ class HomeScreen extends Component {
               <ProductCard product={item} key={index} />
             ))
           ) : (
-            // console.log(this.state.products)
             "No Products"
           )}
         </div>
@@ -53,4 +53,18 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+const mapStateToProps = state => {
+  return {
+    all_products: state.AllProducts,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getAllProductsData: () => {
+      dispatch(getAllProduct());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
