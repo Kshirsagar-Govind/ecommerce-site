@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ProductCard from "./Containers/[ Container ]productCard";
+import "./CSS/headings.css";
 
 class DesignSystem extends Component {
   constructor(props) {
@@ -10,59 +11,27 @@ class DesignSystem extends Component {
   render() {
     return (
       <div>
-        <div>
-          <h1>FONTS STYLING PART</h1>
-          <h1 className="heading_1">Heading 1</h1>
-          <h1 className="heading_1_medium">Heading 1 medium</h1>
-          <h1 className="heading_1_small_grey">Heading 1 Small Grey</h1>
+        <h1 className="lek-64-regular">Lektop 64</h1>
+        <h1 className="lek-48-regular">Lektop 64</h1>
+        <h1 className="lek-40-regular">Lektop 64</h1>
+        <h1 className="lek-36-regular">Lektop 64</h1>
+        <h1 className="lek-32-regular">Lektop 64</h1>
+        <h1 className="lek-28-regular">Lektop 64</h1>
+        <h1 className="lek-24-regular">Lektop 64</h1>
+        <h1 className="lek-20-regular">Lektop 64</h1>
+        <h1 className="lek-18-regular">Lektop 64</h1>
+        <h1 className="lek-16-regular">Lektop 64</h1>
 
-          <h1 className="heading_2">Heading 2</h1>
-          <h1 className="heading_3">Heading 3</h1>
-
-          <h1 className="heading_4">Heading 4</h1>
-          <h1 className="heading_4_card">Heading 4</h1>
-
-          <h1 className="heading_4_light">Heading 4 Light</h1>
-
-          <h1 className="heading_5">Heading 5</h1>
-
-          <h1 className="heading_6">Heading 6</h1>
-          <hr />
-        </div>
-        {/* <div>
-          <h1>BUTTONS STYLING PART</h1>
-          <button className="primary_button heading_5">Text</button> <br />{" "}
-          <br />
-          <button className="secondary_button heading_5">Text</button> <br />{" "}
-          <br />
-          <button className="close_button heading_5">X</button> <br /> <br />
-          <button className="special_button">Text</button> <br /> <br />
-        </div>
-
-        <div>
-          <h1>TEXT INPUT BOX STYLING PART</h1>
-          <input type="text" className="text_box" placeholder="placeholder" />
-          <br /> <br />
-          <input
-            type="text"
-            className="invalid_input"
-            placeholder="invalid input"
-          />
-        </div> */}
-        <div>
-          <button
-            className="primary_button heading_5"
-            onClick={() => {
-              this.setState({
-                rating: this.state.rating + 10,
-              });
-            }}
-          >
-            Text
-          </button>{" "}
-          <br /> <h1 className="heading_1">Product Card STYLING PART</h1>
-          <ProductCard />
-        </div>
+        <h1 className="lek-64-bold">Lektop 64</h1>
+        <h1 className="lek-48-bold">Lektop 64</h1>
+        <h1 className="lek-40-bold">Lektop 64</h1>
+        <h1 className="lek-36-bold">Lektop 64</h1>
+        <h1 className="lek-32-bold">Lektop 64</h1>
+        <h1 className="lek-28-bold">Lektop 64</h1>
+        <h1 className="lek-24-bold">Lektop 64</h1>
+        <h1 className="lek-20-bold">Lektop 64</h1>
+        <h1 className="lek-18-bold">Lektop 64</h1>
+        <h1 className="lek-16-bold">Lektop 64</h1>
       </div>
     );
   }

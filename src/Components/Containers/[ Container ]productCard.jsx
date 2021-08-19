@@ -13,10 +13,11 @@ const ProductCard = ({ product }) => {
     <div className="product_div" onClick={show}>
       <div className="ProductCard">
         <img src={product.product_images[0].imgURL} alt="" />
-        <h3 style={{ marginLeft: "15px" }} className="heading_4_card">
-          {product.product_Name}
-        </h3>
+
         <div className="product_data">
+          <h3 style={{ marginLeft: "15px" }} className="heading_4_card">
+            {product.product_Name}
+          </h3>
           <div className="rnp">
             <div className="rating_container">
               <h6 className="heading_6">0</h6>

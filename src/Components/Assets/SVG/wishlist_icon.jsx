@@ -1,16 +1,16 @@
 import React, { Component, useState } from "react";
 
 const WishlistIcon = () => {
-  const [ color, setColor ] = useState("#ffffff");
+  const [ color, setColor ] = useState("#380000");
 
   return (
     <div
       className=""
       onMouseEnter={() => {
-        setColor("#0f044c");
+        setColor("#592E2E");
       }}
       onMouseLeave={() => {
-        setColor("#ffffff");
+        setColor("#380000");
       }}
     >
       <svg
@@ -19,7 +19,7 @@ const WishlistIcon = () => {
         width="30"
         height="30"
         viewBox="0 0 24 24"
-        stroke-width="1"
+        stroke-width="1.5"
         stroke={color}
         fill="none"
         stroke-linecap="round"

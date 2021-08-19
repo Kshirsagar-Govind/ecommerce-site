@@ -37,9 +37,17 @@ class Header extends Component {
           </div>
         </div>
         <div id="options">
-          <ProfileIcon />
-          <WishlistIcon />
-          <CartIcon />
+          <div className="option">
+            <ProfileIcon />
+          </div>
+
+          <div className="option">
+            <WishlistIcon />
+          </div>
+
+          <div className="option">
+            <CartIcon />
+          </div>
         </div>
       </div>
     );

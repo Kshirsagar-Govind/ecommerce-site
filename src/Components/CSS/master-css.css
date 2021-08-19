@@ -12,6 +12,10 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+html {
+  font-size: 62.5%;
 }
 * {
   padding: 0px;
@@ -23,6 +27,7 @@ body {
 :root {
   --pure: #fff;
   --t_pure: rgba(255, 255, 255, 0.692);
+  --bg_color: #f5f5f5;
   --primary: #380000;
   /* #d52b4a; */
   /* #00cd90; */
@@ -40,6 +45,8 @@ body {
   --shadow_1: 0px 5px 5px #0000007e;
   --shadow_1_h: 1px 10px 5px grey;
   --shadow_2: 0px 5px 10px rgba(128, 128, 128, 0.562);
+  --shadow_type_1: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  --shadow_type_2: 0px 5px 10px rgba(0, 0, 0, 0.5);
 
   --test_border: 2px red solid;
 }
@@ -99,10 +106,11 @@ body {
 .brand {
   font-family: 'Comfortaa', sans-serif;
   /* font-family: 'Montserrat', sans-serif; */
-  color: var(--pure);
+  color: var(--primary);
   font-size: 30px;
   font-weight: 300;
   cursor: pointer;
+  padding: 0.5rem 0rem 0.5rem 1rem;
 }
 
 /* Heading 1 */
@@ -187,10 +195,11 @@ body {
   color: var(--pure);
   padding: 5px 40px;
   border-radius: 5px;
+  min-width: 100px;
   width: fit-content;
   cursor: pointer;
   text-transform: capitalize;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 .primary_button:hover {
   filter: brightness(95%);
@@ -204,8 +213,10 @@ body {
   color: var(--primary);
   padding: 5px 40px;
   border-radius: 5px;
+  min-width: 100px;
   width: fit-content;
   cursor: pointer;
+  font-family: 'Rubik', sans-serif;
 }
 .secondary_button:hover {
   filter: brightness(95%);
@@ -220,7 +231,6 @@ body {
 }
 .close_button:hover {
   border: none;
-
   background-color: var(--primary_light);
   color: var(--primary);
   border-radius: 3px;
@@ -238,9 +248,13 @@ body {
   width: fit-content;
   font-family: 'Sen', sans-serif;
   cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s;
 }
 .special_button:hover {
-  filter: brightness(95%);
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
 /* TEXT BOX STYLING -------------------------------- >>>> */
@@ -266,6 +280,17 @@ body {
   height: 30px;
   border-radius: 5px;
   outline: none;
+}
+.price-box {
+  min-width: 150px;
+  max-width: fit-content;
+  padding: 5px 20px;
+  margin: 0px 20px;
+  border-radius: 5px;
+  background-color: var(--pure);
+}
+.price-box > h3 {
+  color: var(--primary);
 }
 .text_box {
   outline: none;
@@ -406,10 +431,10 @@ body {
 .product_div {
   position: relative;
   background-color: var(--pure);
-  box-shadow: var(--shadow_1);
+  box-shadow: var(--shadow_type_1);
   width: 300px;
   height: 350px;
-  border-radius: 8px;
+  border-radius: 15px;
   margin-bottom: 20px;
   transition: 0.3s;
 }
@@ -424,6 +449,7 @@ body {
 }
 
 .ProductCardDetail {
+  margin-top: 20px;
   position: absolute;
   top: 0;
   left: 0;
@@ -436,17 +462,17 @@ body {
   display: flex;
   justify-content: center;
   position: relative;
-  width: auto;
+  width: 250px;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   /* border-radius: 8px; */
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-
-  height: 75%;
+  height: 65%;
   transition: 0.3s;
 }
 .product_data {
+  margin-top: 5px;
   position: relative;
   float: bottom;
   width: fit-content;
@@ -454,11 +480,12 @@ body {
   margin-left: 10px;
 }
 .rating_container {
+  margin-top: 5px;
   width: 60px;
   height: 30px;
   background-color: var(--pure);
   padding: 4.5px 10px;
-  box-shadow: 0px 2px 3px grey;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   justify-content: center;
   margin-bottom: 4px;
@@ -470,38 +497,17 @@ body {
   height: fit-content;
   align-items: center;
 }
-.ProductCard:hover {
-  /* box-shadow: var(--shadow_1_h); */
-  /* transform: translateY(-2px); */
-  transition: 0.3s;
-}
-.ProductCard:hover {
+
+.product_div:hover {
   transform: translateY(-4px);
+  box-shadow: var(--shadow_type_2);
 }
 /* ADVERTISE SECTION COMPONENT STYLING */
 #ad_section_wrapper {
-  /* border: ; */
   margin-top: 20px;
   position: relative;
   width: 100%;
   height: 600px;
-
-  background: linear-gradient(
-    0deg,
-    rgba(0, 205, 144, 0) 0%,
-    rgba(56, 0, 0, 0.5) 100%
-  );
-  /* background: linear-gradient(
-    0deg,
-    rgba(0, 205, 144, 0) 0%,
-    rgba(0, 205, 144, 0.438) 100%
-  ); */
-
-  /* background: linear-gradient(
-    0deg,
-    rgba(34, 193, 195, 0) 0%,
-    rgba(213, 43, 74, 0.699) 100%
-  ); */
 }
 #ad_section {
   position: absolute;

@@ -5,3 +5,17 @@
 .h10_margin {
   margin: 0px 10px;
 }
+.d-flex {
+  display: flex;
+}
+
+.d-flex-ac {
+  display: flex;
+  align-items: center;
+}
+
+.just-space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

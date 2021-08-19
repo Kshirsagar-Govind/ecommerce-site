@@ -18,7 +18,7 @@ function App() {
         <Switch>
           <Route path='/home-page' component={HomeScreen} exact></Route>
           <Route path='/item-view-page/:product' component={ItemViewScreen} exact></Route>
-          <Route path='/' component={HomeScreen} exact></Route>
+          <Route path='/' component={DesignSystem} exact></Route>
           <Route path='/product-add' component={ProductDataForm} exact></Route>
 
 
