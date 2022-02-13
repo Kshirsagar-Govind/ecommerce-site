@@ -17,6 +17,7 @@
 @import './_item-view.scss';
 @import './_product-data.scss';
 @import './variables';
+@import './card_styles';
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -28,7 +29,7 @@ html {
 * {
   padding: 0px;
   margin: 0px;
-  overflow: overlay;
+  // overflow: overlay;
   box-sizing: border-box;
 }
 
@@ -37,6 +38,7 @@ html {
 /* SCROLLBAR STYLING -------------------------------- >>>> */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 3px;
 }
 
 /* Track */

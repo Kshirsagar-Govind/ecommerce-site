@@ -5,6 +5,7 @@ const getAllProductDataReducer = (state = "", action) => {
             // console.log(action.payload, "action.payload");
             return action.payload;
 
+
         default:
             // console.log("default state");
             return state;

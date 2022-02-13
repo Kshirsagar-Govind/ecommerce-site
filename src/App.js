@@ -10,6 +10,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import AddvertiseSection from "./Components/Containers/[ Container ]addSection";
+import CardScroller from "./Components/Containers/[ Container ]cardScroller";
 function App() {
   return (
     <div className="App">
@@ -18,8 +20,10 @@ function App() {
         <Switch>
           <Route path='/home-page' component={HomeScreen} exact></Route>
           <Route path='/item-view-page/:product' component={ItemViewScreen} exact></Route>
-          <Route path='/' component={DesignSystem} exact></Route>
+          <Route path='/' component={HomeScreen} exact></Route>
+          <Route path='/design-system' component={DesignSystem} exact></Route>
           <Route path='/product-add' component={ProductDataForm} exact></Route>
+          <Route path='/product-add-section' component={CardScroller} exact></Route>
         </Switch>
       </Router>
 

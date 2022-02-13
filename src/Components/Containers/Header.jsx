@@ -17,7 +17,14 @@ class Header extends Component {
   render() {
     return (
       <div id="navbar_wrapper">
-        <div class="brand">GameShop</div>
+        <div class="brand">
+          <a
+            href="/home-page"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            GameShop
+          </a>
+        </div>
         <div id="search_bar">
           <input type="text" id="search_bar_input" placeholder="search" />
           <div

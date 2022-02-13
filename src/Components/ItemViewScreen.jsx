@@ -8,6 +8,9 @@ import { getSingleProduct } from "../Services/Actions/[ Product ] getSingleProdu
 
 import { connect } from "react-redux";
 import axios from "axios";
+import CardScroller, {
+  ScrollingCard,
+} from "./Containers/[ Container ]cardScroller";
 
 class ItemViewScreen extends Component {
   constructor(props) {
@@ -23,22 +26,31 @@ class ItemViewScreen extends Component {
 
   componentDidMount() {
     this.props.getSingleProduct(this.state.product_id);
-    this.setState({
-      product_data: this.props.singleProduct.data,
-    });
-    console.log(this.props);
+
+    // this.setState({
+    //   product_data: this.props.singleProduct.data,
+    // });
+    // console.log(this.props);
   }
 
   shouldComponentUpdate(nextProps) {
-    if (nextProps != this.props) {
-      console.log("TRUE");
+    if (nextProps.all_products != this.props.all_products) {
+      this.setState({
+        product_data: nextProps.all_products.data.find(
+          item => item.product_id == this.state.product_id
+        ),
+      });
+
+      return true;
+    } else if (nextProps.singleProduct !== this.props.singleProduct) {
       return true;
     } else return false;
   }
 
   render() {
+    console.log(this.state.product_data);
     return (
-      <div id="item-view-screen">
+      <div id="item-view-screen" className="item-view-section">
         {this.props.singleProduct.data !== undefined ? (
           <div>
             <div id="view_n_feature">
@@ -54,7 +66,12 @@ class ItemViewScreen extends Component {
                 <br />
                 <div className="just-space">
                   <h1 className="heading_3">Product Name</h1>
-                  <button className="special_button">Add to Wishlist</button>
+                  <button
+                    className="special_button"
+                    onClick={() => this.AddToWishlist()}
+                  >
+                    Add to Wishlist
+                  </button>
                 </div>
 
                 <br />
@@ -148,13 +165,9 @@ class ItemViewScreen extends Component {
             </h3>
 
             <div className="realted-suggestions-section">
-              <div className="suggestions">
-                {/* <ProductCard />
-            <ProductCard />
-            <ProductCard /> */}
-              </div>
+              <CardScroller />
             </div>
-            <div className="line_1" />
+            {/* <div className="line_1" /> */}
 
             <div className="rating-and-review-section">
               <div className="rating-section">
@@ -199,6 +212,7 @@ class ItemViewScreen extends Component {
 const mapStateToProps = state => {
   return {
     singleProduct: state.Product,
+    all_products: state.AllProducts,
   };
 };
 

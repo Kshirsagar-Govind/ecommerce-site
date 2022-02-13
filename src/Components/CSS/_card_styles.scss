@@ -1,0 +1,46 @@
+.scroller-wrapper{
+    display: flex;
+    position: relative;
+    overflow-x: overlay;
+    align-items: center;
+    flex-direction: row;
+    // border: $test_border;
+    height:fit-content;
+    padding: 3rem 2rem;
+    width: 100%;
+    gap: 2rem;
+
+    
+}
+
+.scrolling_card_wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: $pure;
+    flex-direction: column;
+    width: 25rem;
+    height: 30rem;
+    // margin: 0 1rem;
+    border-radius:1rem;
+    padding: 2rem;
+    // border:$test_border;
+    box-shadow: $shadow_type_1;
+    
+    & .img-section{
+        width: 100%;
+        border-radius:1rem;
+
+        height: 20rem;
+        background-color: $primary;
+
+    }
+    
+    & .footer-section{
+        height: 5rem;
+        // border: 2px solid;
+        width: 100%;
+ 
+    }
+
+}

@@ -287,6 +287,10 @@
   padding: 5px 5px;
 }
 
+.item-view-section {
+  width: 100%;
+}
+
 #view_n_feature {
   margin-top: 2rem;
   display: flex;
@@ -336,21 +340,6 @@
   margin: 2rem;
 }
 
-.suggestions {
-  position: relative;
-  display: flex;
-  -moz-column-gap: 40px;
-       column-gap: 40px;
-  overflow-x: scroll;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0px 20px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-
 .rating-and-review-section {
   padding: 0px 20px;
   height: -webkit-fit-content;
@@ -381,6 +370,43 @@
 
 /* #d52b4a; */
 /* #00cd90; */
+.scroller-wrapper {
+  display: flex;
+  position: relative;
+  overflow-x: overlay;
+  align-items: center;
+  flex-direction: row;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 3rem 2rem;
+  width: 100%;
+  gap: 2rem;
+}
+
+.scrolling_card_wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  flex-direction: column;
+  width: 25rem;
+  height: 30rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
+.scrolling_card_wrapper .img-section {
+  width: 100%;
+  border-radius: 1rem;
+  height: 20rem;
+  background-color: #380000;
+}
+.scrolling_card_wrapper .footer-section {
+  height: 5rem;
+  width: 100%;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f5f5f5;
@@ -393,13 +419,13 @@ html {
 * {
   padding: 0px;
   margin: 0px;
-  overflow: overlay;
   box-sizing: border-box;
 }
 
 /* SCROLLBAR STYLING -------------------------------- >>>> */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 3px;
 }
 
 /* Track */

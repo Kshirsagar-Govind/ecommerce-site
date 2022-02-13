@@ -1,3 +1,7 @@
+.item-view-section{
+  width: 100%;
+
+}
 #view_n_feature {
   margin-top: 2rem;
   display: flex;
@@ -40,15 +44,7 @@
   margin: 2rem;
 }
 
-.suggestions {
-  position: relative;
-  display: flex;
-  column-gap: 40px;
-  overflow-x: scroll;
-  width: fit-content;
-  padding: 0px 20px;
-  height: fit-content;
-}
+
 .rating-and-review-section {
   padding: 0px 20px;
   height: fit-content;
