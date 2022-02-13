@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ProductCard from "./Containers/[ Container ]productCard";
-import "./CSS/item-view.css";
-import "./CSS/alignment-css.css";
+import "../Components/CSS/master-css.scss";
 
 import RateMeter from "./Helper/RateMeter";
 import Review from "./Helper/review";

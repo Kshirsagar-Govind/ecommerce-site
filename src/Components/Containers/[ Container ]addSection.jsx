@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../CSS/master-css.css";
+import "../CSS/master-css.scss";
 
 class AddvertiseSection extends Component {
   render() {

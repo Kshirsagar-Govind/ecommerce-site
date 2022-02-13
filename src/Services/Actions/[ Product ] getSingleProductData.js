@@ -2,7 +2,7 @@ export const getSingleProduct = product_id => {
 
     return async dispatch => {
         const res = await fetch(
-            `http://localhost:5500/gameshop/get-product-data/${product_id}`
+            `${process.env.REACT_APP_HOST}/get-product-data/${product_id}`
         );
         const productData = await res.json();
 

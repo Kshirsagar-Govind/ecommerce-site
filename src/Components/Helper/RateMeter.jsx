@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useRef } from "react";
-import "../CSS/alignment-css.css";
+import "../CSS/master-css.scss";
 
 const RateMeter = props => {
   useEffect(() => {

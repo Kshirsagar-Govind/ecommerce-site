@@ -20,17 +20,12 @@ function App() {
           <Route path='/item-view-page/:product' component={ItemViewScreen} exact></Route>
           <Route path='/' component={DesignSystem} exact></Route>
           <Route path='/product-add' component={ProductDataForm} exact></Route>
-
-
-
         </Switch>
       </Router>
 
 
 
-      {/* <ProductDataForm /> */}
-      {/* <DesignSystem /> */}
-      {/* <ProductCard /> */}
+
     </div>
   );
 }

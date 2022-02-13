@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
 import axios from "axios";
-import "../CSS/master-css.css";
+import "../CSS/master-css.scss";
 /*
 const detail = {
   product_Name,
@@ -40,7 +40,7 @@ const ProductDataForm = () => {
     }
     console.log(data);
     const result = await axios.post(
-      "http://localhost:5500/gameshop/add-product-data",
+      `${process.env.REACT_APP_HOST}/add-product-data`,
       data
     );
     console.log(result);

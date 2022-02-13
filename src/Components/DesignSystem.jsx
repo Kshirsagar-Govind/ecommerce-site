@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProductCard from "./Containers/[ Container ]productCard";
-import "./CSS/headings.css";
+import "../Components/CSS/master-css.scss";
 
 class DesignSystem extends Component {
   constructor(props) {

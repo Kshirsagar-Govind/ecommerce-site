@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "../Components/CSS/home-screen.css";
-import "../Components/CSS/master-css.css";
+
+import "../Components/CSS/master-css.scss";
 import AddvertiseSection from "./Containers/[ Container ]addSection";
 import ProductCard from "./Containers/[ Container ]productCard";
 import axios from "axios";
@@ -17,6 +17,7 @@ class HomeScreen extends Component {
 
   componentDidMount() {
     this.props.getAllProductsData();
+
     if (this.props.all_products.data !== undefined) {
       this.setState({
         products: this.props.all_products.data,

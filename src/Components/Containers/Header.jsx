@@ -3,8 +3,8 @@ import CartIcon from "../Assets/SVG/my_cart_icon";
 import ProfileIcon from "../Assets/SVG/profile_icon";
 import SearchIcon from "../Assets/SVG/search_icon";
 import WishlistIcon from "../Assets/SVG/wishlist_icon";
-import "../CSS/header.css";
-import "../CSS/master-css.css";
+
+import "../CSS/master-css.scss";
 
 class Header extends Component {
   constructor(props) {
