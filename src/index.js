@@ -12,10 +12,8 @@ import getAllProductData from "./Services/Reducers/getAllProductsData-Reducer"
 const rootReducer = combineReducers({
   Product: getSingleProductDataReducer,
   AllProducts: getAllProductData,
-
-
-
 });
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // creating redux store

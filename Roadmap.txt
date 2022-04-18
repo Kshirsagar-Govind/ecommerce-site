@@ -1,0 +1,24 @@
+// Pending work -----------------------------------------------------------------------
+1. My Profile Remaining
+2. Notifications Remaining
+3. Dashboard Remaining
+4. REACT REDUX IMPLEMENTATION
+5. Login & Sign Up Redesigning Remaining 
+6. Users Rreview and Ratings
+7. Adding To carts
+/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/- 
+
+// ABOUT THIS project ------------------------------------------------------------------
+This is eCommerce project, where user can see electronics producs and 
+add them in cart and he can see reviews of other buyers.
+/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/- 
+ 
+
+
+// Tech ---------------------------------------------------------------------------------
+1. Node js
+2. React JS
+3. React Redux
+4. SCSS
+4. MongoDB Database
+/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/- 
