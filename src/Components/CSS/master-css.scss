@@ -18,6 +18,7 @@
 @import './_product-data.scss';
 @import './variables';
 @import './card_styles';
+@import './comps';
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -53,13 +54,7 @@ html {
   border-radius: 10px;
 }
 
-.d-flex {
-  display: flex;
-}
-.d-flex-ac {
-  display: flex;
-  align-items: center;
-}
+
 .submit-div {
   display: flex;
   justify-content: center;

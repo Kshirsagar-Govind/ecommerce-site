@@ -4,8 +4,10 @@
 3. Dashboard Remaining
 4. REACT REDUX IMPLEMENTATION
 5. Login & Sign Up Redesigning Remaining 
-6. Users Rreview and Ratings
+6. Users Review and Ratings
 7. Adding To carts
+8. Test Payment Gateway
+9. Email Automation
 /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/- 
 
 // ABOUT THIS project ------------------------------------------------------------------

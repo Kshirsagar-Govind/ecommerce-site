@@ -45,7 +45,9 @@ class Header extends Component {
         </div>
         <div id="options">
           <div className="option">
-            <ProfileIcon />
+            <a href="/registration">
+              <ProfileIcon />
+            </a>
           </div>
 
           <div className="option">

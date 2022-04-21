@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import AddvertiseSection from "./Components/Containers/[ Container ]addSection";
 import CardScroller from "./Components/Containers/[ Container ]cardScroller";
+import RegistrationWrapper from "./Components/LoginRegisterScreen";
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
           <Route path='/design-system' component={DesignSystem} exact></Route>
           <Route path='/product-add' component={ProductDataForm} exact></Route>
           <Route path='/product-add-section' component={CardScroller} exact></Route>
+          <Route path='/registration' component={RegistrationWrapper} exact></Route>
         </Switch>
       </Router>
 
