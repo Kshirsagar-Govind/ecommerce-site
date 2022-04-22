@@ -117,3 +117,41 @@ margin-top: 3rem;
 //  top: 0;
 // border: 2px solid;
 }
+.wish-list-wrapper{
+    width: 100%;
+    height: 18rem;
+    // height: max-content;
+    height: 25rem;
+    display: flex;
+padding:2rem;
+background-color: #fff;
+    // align-items: center;
+    margin: 2rem 0;
+    & .left-section{
+width: 100%;
+    // height: inherit;
+// border: 2px solid;
+display: flex;
+position: relative;
+
+& img{
+    width: 20%;
+    margin: 0 1rem;
+    border-radius:1rem;
+}
+& span{
+    padding:1rem 0;
+}
+    }
+
+    & .right-section{
+    width: 20%;
+    height: 100%;
+    // border: 2px solid;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;  
+text-align: center;
+align-items: center;      
+    }
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductCard from "./Containers/[ Container ]productCard";
 import "../Components/CSS/master-css.scss";
+import WishListItem from "./Containers/[Container]wishList";
 
 class DesignSystem extends Component {
   constructor(props) {
@@ -32,6 +33,10 @@ class DesignSystem extends Component {
         <h1 className="lek-20-bold">Lektop 64</h1>
         <h1 className="lek-18-bold">Lektop 64</h1>
         <h1 className="lek-16-bold">Lektop 64</h1>
+        {/* <WishListItem />
+        <WishListItem />
+        <WishListItem />
+        <WishListItem /> */}
       </div>
     );
   }

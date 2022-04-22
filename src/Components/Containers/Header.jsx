@@ -14,6 +14,8 @@ class Header extends Component {
     };
   }
 
+  showList = () => {};
+
   render() {
     return (
       <div id="navbar_wrapper">
@@ -51,7 +53,9 @@ class Header extends Component {
           </div>
 
           <div className="option">
-            <WishlistIcon />
+            <a href="/wish-list">
+              <WishlistIcon />
+            </a>
           </div>
 
           <div className="option">
@@ -62,4 +66,5 @@ class Header extends Component {
     );
   }
 }
+
 export default Header;

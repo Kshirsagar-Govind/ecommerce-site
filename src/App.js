@@ -13,6 +13,7 @@ import {
 import AddvertiseSection from "./Components/Containers/[ Container ]addSection";
 import CardScroller from "./Components/Containers/[ Container ]cardScroller";
 import RegistrationWrapper from "./Components/LoginRegisterScreen";
+import WishListScreen from "./Components/WishlistScreen";
 function App() {
   return (
     <div className="App">
@@ -26,6 +27,7 @@ function App() {
           <Route path='/product-add' component={ProductDataForm} exact></Route>
           <Route path='/product-add-section' component={CardScroller} exact></Route>
           <Route path='/registration' component={RegistrationWrapper} exact></Route>
+          <Route path='/wish-list' component={WishListScreen} exact></Route>
         </Switch>
       </Router>
 

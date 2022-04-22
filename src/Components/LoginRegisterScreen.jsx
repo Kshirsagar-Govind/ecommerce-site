@@ -3,17 +3,8 @@ import React, { Component, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { UserValid } from "../Services/Actions/[Auth]userData";
 import FormError from "./Containers/[ Container]form-error";
-
-// import { getAllNotes } from "../Services/Actions/[ NOTES ]";
-// import { getAllPassword } from "../Services/Actions/[ PASSWORD ]";
-
-// import { isUserValid } from "../Services/Actions/[ AUTH ] userValidity";
-// import {
-//   getAllCategories,
-//   getAllExpenses,
-// } from "../Services/Actions/[ EXPENSE ]";
-// import { getAllTasks } from "../Services/Actions/[ TASKS ]";
 
 class RegistrationWrapper extends Component {
   render() {
@@ -48,40 +39,25 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const onSubmit = async (data, e) => {
-    // e.preventDefault();
-    // reset();
-    // try {
-    //   const res = await axios.post(
-    //     `${process.env.REACT_APP_HOST}/login-user`,
-    //     data
-    //   );
-    //   console.log(res.data);
-    //   if (res.data.status == 200) {
-    //     setUserValid(true);
-    //     const data = await axios.get(
-    //       `${process.env.REACT_APP_HOST}/get-all-notes/${res.data.data.user_id}`
-    //     );
-    //     let arr = data.data.notes.Notes;
-    //     dispatch(
-    //       isUserValid({
-    //         loggedIn: true,
-    //         name: res.data.data.name,
-    //         email: res.data.data.email,
-    //         reg_on: res.data.data.reg_on,
-    //         user_id: res.data.data.user_id,
-    //         app_mode: "light-mode",
-    //       })
-    //     );
-    //     dispatch(getAllNotes(arr));
-    //     dispatch(getAllPassword(res.data.data.user_id));
-    //     dispatch(getAllCategories(res.data.data.user_id));
-    //     dispatch(getAllExpenses(res.data.data.user_id));
-    //     dispatch(getAllTasks(res.data.data.user_id));
-    //   }
-    //   //   navigate("/home");
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    e.preventDefault();
+    reset();
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_HOST}/user-login`,
+        data
+      );
+      console.log(res.data);
+      // alert(res.data.message);
+      if (res.data.code == 200) {
+        dispatch(
+          UserValid({ name: res.data.Auth.email, id: res.data.Auth.user_id })
+        );
+
+        navigate.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
