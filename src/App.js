@@ -14,6 +14,9 @@ import AddvertiseSection from "./Components/Containers/[ Container ]addSection";
 import CardScroller from "./Components/Containers/[ Container ]cardScroller";
 import RegistrationWrapper from "./Components/LoginRegisterScreen";
 import WishListScreen from "./Components/WishlistScreen";
+import MyCartScreen from "./Components/MyCartScreen";
+import PaymentScreen from "./Components/payment-screen";
+import AccountScreen from "./Components/account-screen";
 function App() {
   return (
     <div className="App">
@@ -28,6 +31,9 @@ function App() {
           <Route path='/product-add-section' component={CardScroller} exact></Route>
           <Route path='/registration' component={RegistrationWrapper} exact></Route>
           <Route path='/wish-list' component={WishListScreen} exact></Route>
+          <Route path='/cart-list' component={MyCartScreen} exact></Route>
+          <Route path='/pay-now' component={PaymentScreen} exact></Route>
+          <Route path='/user-account' component={AccountScreen} exact></Route>
         </Switch>
       </Router>
 

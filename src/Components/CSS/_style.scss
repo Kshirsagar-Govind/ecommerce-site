@@ -1,0 +1,130 @@
+:root {
+    --danger: #e96464;
+    --warning: #ff9e61;
+    --success: #79d630;
+    --info: #4ba9ff;
+    --pure: #fff;
+    /* --danger:#E96464; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.warning {
+    background-color: var(--warning);
+}
+.t_warning {
+    color: var(--warning);
+}
+.info {
+    background-color: var(--info);
+}
+.t_info {
+    color: var(--info);
+}
+.danger {
+    background-color: var(--danger);
+}
+.t_danger {
+    color: var(--danger);
+}
+.success {
+    background-color: var(--success);
+    border: 0.2rem solid var(--success);
+}
+.t_success {
+    color: var(--success);
+}
+
+// .dark-back {
+//     position: absolute;
+//     z-index: 5;
+//     width: 100vw;
+//     height: 100vh;
+//     left: 0;
+//     top: 0;
+//     background-color: rgb(153, 153, 153);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+.popup-window {
+    background-color: #fff;
+    width: 55rem;
+    position: relative;
+    min-height: 17rem;
+    max-height: fit-content;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+.popup-window .popup-label {
+    position: absolute;
+    left: 0;
+    top: 12%;
+
+    padding: 1rem 2rem;
+    max-width: fit-content;
+    min-width: 10rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 0.1rem 0rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.popup-window .popup-label h2 {
+    color: #fff;
+    float: right;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    font-size: 1.8rem;
+}
+.popup-window .popup-message {
+    /* border: 2px solid; */
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12%;
+}
+
+.popup-window .popup-message p {
+    font-size: 1.5rem;
+    padding: 0 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.popup-window .popup-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    gap: 5rem;
+}
+
+.popup-window .popup-btns .ok {
+    border: transparent;
+    width: 7rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    color: var(--pure);
+    border-radius: 0.8rem;
+}
+.popup-window .popup-btns .ok:hover {
+    filter: brightness(110%);
+}
+.popup-window .popup-btns .cancel {
+    border-radius: 0.8rem;
+    width: 7rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    background-color: var(--pure);
+    border: transparent;
+    font-weight: 500;
+}

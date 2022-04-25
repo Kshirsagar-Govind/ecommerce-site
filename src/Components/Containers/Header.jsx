@@ -3,18 +3,40 @@ import CartIcon from "../Assets/SVG/my_cart_icon";
 import ProfileIcon from "../Assets/SVG/profile_icon";
 import SearchIcon from "../Assets/SVG/search_icon";
 import WishlistIcon from "../Assets/SVG/wishlist_icon";
+import ProfileSVG from "../Assets/SVG/profile.svg";
+import LoginSVG from "../Assets/SVG/login.svg";
+import LogoutSVG from "../Assets/SVG/logout.svg";
 
+import { connect } from "react-redux";
 import "../CSS/master-css.scss";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       color: "#ffffff",
+      showPopup: false,
+      userData: {},
+      auth: false,
     };
   }
 
-  showList = () => {};
+  componentDidMount() {
+    console.log(this.state.userData);
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.user !== state.userData) {
+      //Change in props
+      return {
+        userData: props.user,
+        auth: true,
+      };
+    }
+    return null; // No change to state
+  }
 
   render() {
     return (
@@ -46,10 +68,11 @@ class Header extends Component {
           </div>
         </div>
         <div id="options">
-          <div className="option">
-            <a href="/registration">
-              <ProfileIcon />
-            </a>
+          <div
+            className="option"
+            onClick={() => this.setState({ showPopup: !this.state.showPopup })}
+          >
+            <ProfileIcon />
           </div>
 
           <div className="option">
@@ -59,12 +82,57 @@ class Header extends Component {
           </div>
 
           <div className="option">
-            <CartIcon />
+            <a href="/cart-list">
+              <CartIcon />
+            </a>
           </div>
         </div>
+        {this.state.showPopup ? (
+          <Profile user={this.state.userData.name !== ""} />
+        ) : null}
       </div>
     );
   }
 }
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    user: state.setUserData,
+  };
+};
+export default connect(mapStateToProps, null)(Header);
+
+// export default ;
+const Profile = ({ user }) => {
+  const history = useHistory();
+  const logout = () => {
+    alert("logout");
+    localStorage.removeItem("persist:root");
+    history.push("/registration");
+  };
+  return (
+    <div className="acc-popup">
+      <ul>
+        <li>
+          <a href="/user-account">
+            <img src={ProfileSVG} alt="" />
+            Account
+          </a>
+        </li>
+        {user ? (
+          <li onClick={() => logout()}>
+            <img src={LogoutSVG} alt="" />
+            Logout
+          </li>
+        ) : (
+          <li>
+            <a href="/registration">
+              <img src={LoginSVG} alt="" />
+              Log In
+            </a>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+};

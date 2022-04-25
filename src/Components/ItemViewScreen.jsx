@@ -20,6 +20,7 @@ class ItemViewScreen extends Component {
       star: "1",
       product_id: this.props.match.params.product,
       product_data: {},
+      userData: {},
     };
   }
   // const {}= this.props.singleProduct.data;
@@ -47,6 +48,27 @@ class ItemViewScreen extends Component {
     } else return false;
   }
 
+  AddToWishlist = async () => {
+    if (this.state.userData.name == "") {
+      return alert("You Must Login First");
+    }
+    //
+    const res = await axios.post(
+      `${process.env.REACT_APP_HOST}/add-to-wishlist/${this.state.userData.id}`,
+      { product_id: this.state.product_id }
+    );
+    console.log(res);
+  };
+  static getDerivedStateFromProps(props, state) {
+    if (props.user !== state.userData) {
+      //Change in props
+      return {
+        userData: props.user,
+        auth: true,
+      };
+    }
+    return null; // No change to state
+  }
   render() {
     console.log(this.state.product_data);
     return (
@@ -213,6 +235,7 @@ const mapStateToProps = state => {
   return {
     singleProduct: state.Product,
     all_products: state.AllProducts,
+    user: state.setUserData,
   };
 };
 
