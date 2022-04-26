@@ -1,6 +1,5 @@
-.item-view-section{
+.item-view-section {
   width: 100%;
-
 }
 #view_n_feature {
   margin-top: 2rem;
@@ -44,7 +43,6 @@
   margin: 2rem;
 }
 
-
 .rating-and-review-section {
   padding: 0px 20px;
   height: fit-content;
@@ -66,4 +64,28 @@
   align-items: center;
   justify-content: space-between;
   padding-right: 40px;
+}
+.review-form {
+  background-color: white;
+  // border: 2px solid;
+  padding: 3rem 5rem;
+  width: max-content;
+  height: fit-content;
+  border-radius: 1.4rem;
+  & .review-form-popup {
+    width: 30rem;
+
+    & textarea {
+      width: 100%;
+      resize: none;
+      height: 10rem;
+      padding: 1rem;
+    }
+    & button {
+      margin: 2rem 1rem;
+    }
+  }
+}
+
+.helped-btn {
 }

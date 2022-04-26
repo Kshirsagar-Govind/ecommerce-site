@@ -4,15 +4,20 @@ import "../CSS/master-css.scss";
 const RateMeter = props => {
   useEffect(() => {
     if (props.star === "1") {
-      document.getElementById("rating_perc").style.width = props.rating + "%";
+      document.getElementById("rating_perc").style.width =
+        props.rating.toString() + "%";
     } else if (props.star === "2") {
-      document.getElementById("rating_perc_2").style.width = props.rating + "%";
+      document.getElementById("rating_perc_2").style.width =
+        props.rating.toString() + "%";
     } else if (props.star === "3") {
-      document.getElementById("rating_perc_3").style.width = props.rating + "%";
+      document.getElementById("rating_perc_3").style.width =
+        props.rating.toString() + "%";
     } else if (props.star === "4") {
-      document.getElementById("rating_perc_4").style.width = props.rating + "%";
+      document.getElementById("rating_perc_4").style.width =
+        props.rating.toString() + "%";
     } else if (props.star === "5") {
-      document.getElementById("rating_perc_5").style.width = props.rating + "%";
+      document.getElementById("rating_perc_5").style.width =
+        props.rating.toString() + "%";
     }
   });
 
@@ -33,7 +38,7 @@ const RateMeter = props => {
         )}
       </div>
       <h3 className="heading_6 h10_margin">
-        {props.rating < 100 ? props.rating : "100"}%
+        {props.rate_count > 0 ? props.rate_count : 0}
       </h3>
     </div>
   );

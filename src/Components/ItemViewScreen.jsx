@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ProductCard from "./Containers/[ Container ]productCard";
 import "../Components/CSS/master-css.scss";
-
+import StarIcon from "../Components/Assets/SVG/star_icon";
 import RateMeter from "./Helper/RateMeter";
 import Review from "./Helper/review";
 import { getSingleProduct } from "../Services/Actions/[ Product ] getSingleProductData";
@@ -21,17 +21,26 @@ class ItemViewScreen extends Component {
       product_id: this.props.match.params.product,
       product_data: {},
       userData: {},
+      showReviewForm: false,
+      rating: 0,
+      one_star: 0,
+      two_star: 0,
+      three_star: 0,
+      four_star: 0,
+      five_star: 0,
+      max_count: 0,
+      reviews: [],
+      final_rating: 0,
     };
   }
   // const {}= this.props.singleProduct.data;
 
   componentDidMount() {
     this.props.getSingleProduct(this.state.product_id);
-
-    // this.setState({
-    //   product_data: this.props.singleProduct.data,
-    // });
-    // console.log(this.props);
+    this.getReviews();
+    this.setState({
+      reviews: [],
+    });
   }
 
   shouldComponentUpdate(nextProps) {
@@ -42,10 +51,8 @@ class ItemViewScreen extends Component {
         ),
       });
 
-      return true;
-    } else if (nextProps.singleProduct !== this.props.singleProduct) {
-      return true;
-    } else return false;
+      return false;
+    } else return true;
   }
 
   AddToWishlist = async () => {
@@ -69,6 +76,63 @@ class ItemViewScreen extends Component {
     }
     return null; // No change to state
   }
+
+  getReviews = async (req, res) => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_HOST}/get-product-review/${this.state
+          .product_id}`
+      );
+
+      this.setState({ reviews: res.data.reviews });
+      let one = 0;
+      let two = 0;
+      let three = 0;
+      let four = 0;
+      let five = 0;
+      res.data.reviews.map(item => {
+        if (item.rating == 1) {
+          one = one + 1;
+        } else if (item.rating == 2) {
+          two = two + 1;
+        } else if (item.rating == 3) {
+          three = three + 1;
+        } else if (item.rating == 4) {
+          four = four + 1;
+        } else if (item.rating == 5) {
+          five = five + 1;
+        }
+      });
+
+      let temp = [ one, two, three, four, five ];
+
+      let max = 0;
+      for (let i = 0; i < temp.length; i++) {
+        if (temp[i] > max) {
+          max = temp[i];
+        }
+      }
+
+      const t = 1 * one + 2 * two + 3 * three + 4 * four + 5 * five;
+      const ar = one + two + three + four + five;
+      console.log(t / ar, "*/*/*/*/*/*");
+
+      this.setState({
+        one_star: one,
+        two_star: two,
+        three_star: three,
+        four_star: four,
+        five_star: five,
+        max_count: max,
+        final_rating: t / ar,
+      });
+
+      // console.log(this.state);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     console.log(this.state.product_data);
     return (
@@ -171,7 +235,14 @@ class ItemViewScreen extends Component {
                       </div>
                     </div>
                   </div>
-                  <button className="special_button">Buy</button>
+                  <button
+                    className="special_button"
+                    onClick={() => {
+                      window.open("/pay-now");
+                    }}
+                  >
+                    Buy
+                  </button>
                 </div>
               </div>
             </div>
@@ -198,29 +269,66 @@ class ItemViewScreen extends Component {
                   style={{
                     marginBottom: "10px",
                     marginTop: "20px",
-
                     color: "#380000",
                   }}
                 >
-                  Rating and Reviews
+                  Rating and Reviews {this.state.final_rating}.0
                 </h3>
-                <RateMeter rating={"80"} star={"5"} />
-                <RateMeter rating={"69"} star={"4"} />
-                <RateMeter rating={"30"} star={"3"} />
-                <RateMeter rating={"80"} star={"2"} />
-                <RateMeter rating={"50"} star={"1"} />
+                <RateMeter
+                  rating={this.state.five_star / this.state.max_count * 100}
+                  rate_count={this.state.five_star}
+                  star={"5"}
+                />
+                <RateMeter
+                  rating={this.state.four_star / this.state.max_count * 100}
+                  rate_count={this.state.four_star}
+                  star={"4"}
+                />
+                <RateMeter
+                  rating={this.state.three_star / this.state.max_count * 100}
+                  rate_count={this.state.three_star}
+                  star={"3"}
+                />
+                <RateMeter
+                  rating={this.state.two_star / this.state.max_count * 100}
+                  rate_count={this.state.two_star}
+                  star={"2"}
+                />
+                <RateMeter
+                  rating={this.state.one_star / this.state.max_count * 100}
+                  rate_count={this.state.one_star}
+                  star={"1"}
+                />
                 <br />
                 <div>
-                  <button className="primary_button">Write a Review...</button>
+                  <button
+                    className="primary_button"
+                    onClick={() => this.setState({ showReviewForm: true })}
+                  >
+                    Write a Review...
+                  </button>
                 </div>
+                {this.state.showReviewForm ? (
+                  <div className="dark-back">
+                    <ReviewPopup
+                      data={{
+                        user: this.state.userData,
+                        product_id: this.state.product_id,
+                      }}
+                      close={() => {
+                        this.setState({ showReviewForm: false });
+                      }}
+                    />
+                  </div>
+                ) : null}
               </div>
 
               <div className="reviews">
-                <Review />
-                <Review />
-                <Review />
-                <Review />
-                <Review />
+                {this.state.reviews.length > 0 ? (
+                  this.state.reviews.map(item => <Review item={item} />)
+                ) : (
+                  <h1 className="lek-20-semi">No reviews</h1>
+                )}
               </div>
             </div>
           </div>
@@ -246,4 +354,176 @@ const mapDispatchToProps = dispatch => {
     },
   };
 };
+
+class ReviewPopup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      one: false,
+      two: false,
+      three: false,
+      four: false,
+      five: false,
+      review: "",
+      title: "",
+    };
+  }
+
+  onSubmit = async () => {
+    if (!this.state.one) {
+      return alert("Please Give a Star");
+    }
+    const dataToSend = {
+      rating: this.state.five
+        ? 5
+        : this.state.four ? 4 : this.state.three ? 3 : this.state.two ? 2 : 1,
+      title: this.state.title,
+      review: this.state.review,
+      user_id: this.props.data.user.id,
+      user_name: this.props.data.user.name,
+      product_id: this.props.data.product_id,
+    };
+
+    const res = await axios.post(
+      `${process.env.REACT_APP_HOST}/submit-product-review`,
+      dataToSend
+    );
+    console.log(res, "responce");
+  };
+  render() {
+    return (
+      <div className="review-form">
+        <div className="review-form-popup">
+          <div className="input-div-2 m-yy-20">
+            <label htmlFor="rating" className="text_label">
+              Rating
+            </label>
+            <div className="just-space">
+              <div
+                onClick={() => {
+                  this.setState(
+                    {
+                      one: true,
+                      two: false,
+                      three: false,
+                      four: false,
+                      five: false,
+                    },
+                    () => {
+                      console.log(this.state);
+                    }
+                  );
+                }}
+              >
+                <StarIcon fill={this.state.one} />
+              </div>
+
+              <div
+                id="str_2"
+                onClick={() => {
+                  this.setState({
+                    one: true,
+                    two: true,
+                    three: false,
+                    four: false,
+                    five: false,
+                  });
+                }}
+              >
+                <StarIcon fill={this.state.two} />
+              </div>
+
+              <div
+                id="str_3"
+                onClick={() => {
+                  this.setState({
+                    one: true,
+                    two: true,
+                    three: true,
+                    four: false,
+                    five: false,
+                  });
+                }}
+              >
+                <StarIcon fill={this.state.three} />
+              </div>
+
+              <div
+                id="str_4"
+                onClick={() => {
+                  this.setState({
+                    one: true,
+                    two: true,
+                    three: true,
+                    four: true,
+                    five: false,
+                  });
+                }}
+              >
+                <StarIcon fill={this.state.four} />
+              </div>
+
+              <div
+                id="str_5"
+                onClick={() => {
+                  this.setState({
+                    one: true,
+                    two: true,
+                    three: true,
+                    four: true,
+                    five: true,
+                  });
+                }}
+              >
+                <StarIcon fill={this.state.five} />
+              </div>
+            </div>
+          </div>
+
+          <div className="input-div-2 m-yy-20">
+            <label htmlFor="input-label-2" className="text_label">
+              Title
+            </label>{" "}
+            <div className="d-flex-ac">
+              <input
+                type="text"
+                placeholder="review title"
+                value={this.state.title}
+                onChange={e => this.setState({ title: e.target.value })}
+              />{" "}
+            </div>
+          </div>
+
+          <div className="input-div-2 m-yy-20">
+            <label htmlFor="input-label-2" className="text_label">
+              Review
+            </label>{" "}
+            <div className="d-flex-ac">
+              <textarea
+                value={this.state.review}
+                onChange={e => {
+                  this.setState({ review: e.target.value });
+                }}
+                placeholder="review"
+              />{" "}
+            </div>
+          </div>
+
+          <button className="primary_button" onClick={() => this.onSubmit()}>
+            Save
+          </button>
+          <button
+            className="secondary_button"
+            onClick={() => {
+              this.props.close();
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(ItemViewScreen);
