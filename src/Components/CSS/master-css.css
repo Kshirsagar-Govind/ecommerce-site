@@ -19,7 +19,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Slabo+13px&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&family=Sora:wght@200;300&display=swap");
-@import url(https://fonts.googleapis.com/css2?family=Lekton:wght@100;200;300;400;500;600;700&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@100;200;300;400;500&display=swap");
 .flex {
   display: flex;
   align-items: center;
@@ -132,133 +132,199 @@
 }
 
 .lek-64-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 64px;
   font-weight: normal;
 }
 
 .lek-48-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 48px;
   font-weight: normal;
 }
 
 .lek-40-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 40px;
   font-weight: normal;
 }
 
 .lek-36-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 36px;
   font-weight: normal;
 }
 
 .lek-32-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 32px;
   font-weight: normal;
 }
 
 .lek-28-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 28px;
   font-weight: normal;
 }
 
 .lek-24-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 24px;
   font-weight: normal;
 }
 
 .lek-20-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
   font-weight: normal;
 }
 
 .lek-18-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-weight: normal;
 }
 
 .lek-16-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: normal;
 }
 
 .lek-14-regular {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: normal;
 }
 
+.lek-64-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 64px;
+  font-weight: 600;
+}
+
+.lek-48-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.lek-40-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.lek-36-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.lek-32-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.lek-28-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.lek-24-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.lek-20-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.lek-18-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.lek-16-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lek-14-semi {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .lek-64-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 64px;
   font-weight: bold;
 }
 
 .lek-48-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 48px;
   font-weight: bold;
 }
 
 .lek-40-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 40px;
   font-weight: bold;
 }
 
 .lek-36-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 36px;
   font-weight: bold;
 }
 
 .lek-32-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 32px;
   font-weight: bold;
 }
 
 .lek-28-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 28px;
   font-weight: bold;
 }
 
 .lek-24-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 24px;
   font-weight: bold;
 }
 
 .lek-20-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
   font-weight: bold;
 }
 
 .lek-18-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-weight: bold;
 }
 
 .lek-16-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: bold;
 }
 
 .lek-14-bold {
-  font-family: "Lekton", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: bold;
 }
@@ -370,6 +436,30 @@
   padding-right: 40px;
 }
 
+.review-form {
+  background-color: white;
+  padding: 3rem 5rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 1.4rem;
+}
+.review-form .review-form-popup {
+  width: 30rem;
+}
+.review-form .review-form-popup textarea {
+  width: 100%;
+  resize: none;
+  height: 10rem;
+  padding: 1rem;
+}
+.review-form .review-form-popup button {
+  margin: 2rem 1rem;
+}
+
 /* #d52b4a; */
 /* #00cd90; */
 .scroller-wrapper {
@@ -402,15 +492,74 @@
   width: 100%;
   border-radius: 1rem;
   height: 20rem;
-  background-color: #380000;
+  background-color: rgba(128, 128, 128, 0.338);
 }
 .scrolling_card_wrapper .footer-section {
-  height: 5rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100%;
+  padding-top: 1rem;
+}
+.scrolling_card_wrapper .footer-section h1 {
+  font-weight: 400;
 }
 
 /* #d52b4a; */
 /* #00cd90; */
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  -webkit-animation-delay: -0.45s;
+          animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  -webkit-animation-delay: -0.3s;
+          animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  -webkit-animation-delay: -0.15s;
+          animation-delay: -0.15s;
+}
+
+@-webkit-keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .d-flex {
   display: flex;
 }
@@ -436,6 +585,19 @@
 }
 .registration-page div > h1 {
   position: relative;
+}
+
+.dark-back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 .divider {
@@ -582,6 +744,215 @@
 .acc-popup ul li:hover {
   border-radius: 2rem;
   background-color: #f5f5f5;
+}
+
+:root {
+  --danger: #e96464;
+  --warning: #ff9e61;
+  --success: #79d630;
+  --info: #4ba9ff;
+  --pure: #fff;
+  /* --danger:#E96464; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.warning {
+  background-color: var(--warning);
+}
+
+.t_warning {
+  color: var(--warning);
+}
+
+.info {
+  background-color: var(--info);
+}
+
+.t_info {
+  color: var(--info);
+}
+
+.danger {
+  background-color: var(--danger);
+}
+
+.t_danger {
+  color: var(--danger);
+}
+
+.success {
+  background-color: var(--success);
+  border: 0.2rem solid var(--success);
+}
+
+.t_success {
+  color: var(--success);
+}
+
+.popup-window {
+  background-color: #fff;
+  width: 55rem;
+  position: relative;
+  min-height: 17rem;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.popup-window .popup-label {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  padding: 1rem 2rem;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  min-width: 10rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0.1rem 0rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.popup-window .popup-label h2 {
+  color: #fff;
+  float: right;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  font-size: 1.8rem;
+}
+
+.popup-window .popup-message {
+  /* border: 2px solid; */
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12%;
+}
+
+.popup-window .popup-message p {
+  font-size: 1.5rem;
+  padding: 0 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.popup-window .popup-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  gap: 5rem;
+}
+
+.popup-window .popup-btns .ok {
+  border: transparent;
+  width: 7rem;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  color: var(--pure);
+  border-radius: 0.8rem;
+}
+
+.popup-window .popup-btns .ok:hover {
+  filter: brightness(110%);
+}
+
+.popup-window .popup-btns .cancel {
+  border-radius: 0.8rem;
+  width: 7rem;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  background-color: var(--pure);
+  border: transparent;
+  font-weight: 500;
+}
+
+/* #d52b4a; */
+/* #00cd90; */
+.payment-screen {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  width: 100vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 3rem;
+}
+.payment-screen .product-section {
+  background-color: #fff;
+  width: 90%;
+  display: flex;
+  height: 18rem;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3rem;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+}
+.payment-screen .product-section img {
+  height: 12rem;
+  margin: 0 2rem;
+}
+.payment-screen .product-section span {
+  height: 100%;
+}
+.payment-screen .table-section {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  width: 90%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #fff;
+}
+.payment-screen .table-section table {
+  margin: 2rem 0;
+  width: 100%;
+  border: 2px solid #f5f5f5;
+  border-collapse: collapse;
+}
+.payment-screen .table-section table th {
+  padding: 2rem 0;
+}
+.payment-screen .pay-n-address-section {
+  width: 90%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+}
+.payment-screen .pay-n-address-section .address-section,
+.payment-screen .pay-n-address-section .payment-section {
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+  width: 48%;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+.payment-screen .pay-n-address-section .address-section p,
+.payment-screen .pay-n-address-section .payment-section p {
+  text-align: justify;
 }
 
 body {
@@ -747,6 +1118,7 @@ html {
   cursor: pointer;
   text-transform: capitalize;
   font-family: "Rubik", sans-serif;
+  text-decoration: none;
 }
 
 .primary_button:hover {
@@ -1141,14 +1513,33 @@ html {
 }
 
 #ad_section {
+  background-size: cover;
   position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
   left: 2.5%;
   margin-top: 50px;
-  background-color: #fff;
   width: 95%;
   height: 70%;
   border-radius: 5px;
   box-shadow: 0px 5px 10px rgba(128, 128, 128, 0.562);
+}
+#ad_section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#ad_section .testing-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+}
+#ad_section .testing-header h1 {
+  font-weight: 400;
+  font-size: 3rem;
 }
 
 /* RADIO BUTTON STYLING */

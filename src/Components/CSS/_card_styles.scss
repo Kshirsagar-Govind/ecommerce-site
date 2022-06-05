@@ -1,19 +1,17 @@
-.scroller-wrapper{
+.scroller-wrapper {
     display: flex;
     position: relative;
     overflow-x: overlay;
     align-items: center;
     flex-direction: row;
     // border: $test_border;
-    height:fit-content;
+    height: fit-content;
     padding: 3rem 2rem;
     width: 100%;
     gap: 2rem;
-
-    
 }
 
-.scrolling_card_wrapper{
+.scrolling_card_wrapper {
     position: relative;
     display: flex;
     justify-content: center;
@@ -22,25 +20,27 @@
     width: 25rem;
     height: 30rem;
     // margin: 0 1rem;
-    border-radius:1rem;
+    border-radius: 1rem;
     padding: 2rem;
     // border:$test_border;
     box-shadow: $shadow_type_1;
-    
-    & .img-section{
+
+    & .img-section {
         width: 100%;
-        border-radius:1rem;
+        border-radius: 1rem;
 
         height: 20rem;
-        background-color: $primary;
-
+        // background-color: $primary;
+        background-color: rgba(128, 128, 128, 0.338);
     }
-    
-    & .footer-section{
-        height: 5rem;
+
+    & .footer-section {
+        height: fit-content;
         // border: 2px solid;
         width: 100%;
- 
+        padding-top: 1rem;
+        & h1 {
+            font-weight: 400;
+        }
     }
-
 }

@@ -36,6 +36,7 @@ class CartScreen extends Component {
     }
     return null; // No change to state
   }
+
   getCartList = async () => {
     try {
       const res = await axios.get(

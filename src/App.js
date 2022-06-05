@@ -32,7 +32,7 @@ function App() {
           <Route path='/registration' component={RegistrationWrapper} exact></Route>
           <Route path='/wish-list' component={WishListScreen} exact></Route>
           <Route path='/cart-list' component={MyCartScreen} exact></Route>
-          <Route path='/pay-now' component={PaymentScreen} exact></Route>
+          <Route path='/pay-now/:p_id' component={PaymentScreen} exact></Route>
           <Route path='/user-account' component={AccountScreen} exact></Route>
         </Switch>
       </Router>

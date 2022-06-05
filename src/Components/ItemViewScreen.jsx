@@ -238,7 +238,9 @@ class ItemViewScreen extends Component {
                   <button
                     className="special_button"
                     onClick={() => {
-                      window.open("/pay-now");
+                      window.open(
+                        `/pay-now/${this.props.singleProduct.data.product_id}`
+                      );
                     }}
                   >
                     Buy
