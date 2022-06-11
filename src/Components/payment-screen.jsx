@@ -9,6 +9,7 @@ class PaymentScreen extends Component {
     super(props);
 
     this.state = {
+      p_id: "",
       productData: {},
       userData: {},
       addressData: {},
@@ -28,7 +29,6 @@ class PaymentScreen extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match.params.p_id);
     this.getAllDataFirst(this.props.match.params.p_id);
   }
 
@@ -46,7 +46,31 @@ class PaymentScreen extends Component {
         productData: product.data.data,
         addressData: userAddress.data.message,
         img: product.data.data.product_images[0].imgURL,
+        p_id: p_id,
       });
+      console.error(
+        product,
+        userAddress,
+        "----------===============-----------=========="
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  PlaceOrder = async () => {
+    try {
+      const data = {
+        product_id: this.state.p_id,
+        price: this.state.productData.product_Price,
+        delivery_address: this.state.addressData.address,
+      };
+      const res = await axios.post(
+        `${process.env.REACT_APP_HOST}/product-purchased/${this.state.userData
+          .id}`
+      );
+      console.log(res);
+      alert("Order Placed Successfully");
     } catch (error) {
       console.error(error);
     }
@@ -113,7 +137,10 @@ class PaymentScreen extends Component {
               Payment
             </label>
             <div className="mx-auto">
-              <button className="primary_button lek-14-regular py-3 px-3">
+              <button
+                onClick={() => this.PlaceOrder()}
+                className="primary_button lek-14-regular py-3 px-3"
+              >
                 PLACE MY ORDER
               </button>
             </div>
