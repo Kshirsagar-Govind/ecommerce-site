@@ -4,6 +4,8 @@ import Test from "./Assets/test.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
+import AlertPopup from "./Alerts/alert-popup";
+import { AlertCallback } from "../Services/services";
 class PaymentScreen extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +16,13 @@ class PaymentScreen extends Component {
       userData: {},
       addressData: {},
       img: "",
+
+      a_header: "",
+      a_msg: "",
+      a_type: "",
+      _showAlert: false,
+
+      _loading: false,
     };
   }
 
@@ -48,11 +57,6 @@ class PaymentScreen extends Component {
         img: product.data.data.product_images[0].imgURL,
         p_id: p_id,
       });
-      console.error(
-        product,
-        userAddress,
-        "----------===============-----------=========="
-      );
     } catch (error) {
       console.error(error);
     }
@@ -70,10 +74,26 @@ class PaymentScreen extends Component {
           .id}`
       );
       console.log(res);
-      alert("Order Placed Successfully");
+      // alert("Order Placed Successfully");
+
+      console.log(
+        AlertCallback("SUCCESS", "Order Placed Successfully", "success")
+      );
+
+      this.alert_popup("SUCCESS", "Order Placed Successfully", "success");
     } catch (error) {
       console.error(error);
+      this.alert_popup("ERROR", "Failed to Place your order", "error");
     }
+  };
+
+  alert_popup = (header, msg, type) => {
+    this.setState({
+      a_header: header,
+      a_msg: msg,
+      a_type: type,
+      _showAlert: true,
+    });
   };
 
   render() {
@@ -146,6 +166,20 @@ class PaymentScreen extends Component {
             </div>
           </div>
         </div>
+        {this.state._showAlert ? (
+          <div className="dark-back">
+            <AlertPopup
+              heading={this.state.a_header}
+              message={this.state.a_msg}
+              ok={() => {
+                this.setState({
+                  _showAlert: false,
+                });
+              }}
+              type={this.state.a_type}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }

@@ -19,6 +19,7 @@ class HomeScreen extends Component {
     this.props.getAllProductsData();
 
     if (this.props.all_products.data !== undefined) {
+      console.log(this.props.all_products.data);
       this.setState({
         products: this.props.all_products.data,
       });
