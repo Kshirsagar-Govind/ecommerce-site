@@ -292,8 +292,9 @@ html {
 }
 .text_box_2 {
   outline: none;
+
   background-color: var(--primary_light);
-  border: 2px solid transparent;
+  border: 2px solid rgb(205, 205, 205);
   border-radius: 5px;
   height: 30px;
   color: $primary;
@@ -461,7 +462,7 @@ html {
 }
 .rating_container {
   margin-top: 5px;
-  width: 60px;
+  width: 65px;
   height: 30px;
   background-color: $pure;
   padding: 4.5px 10px;
@@ -471,6 +472,9 @@ html {
   margin-bottom: 4px;
   margin-right: 4px;
   margin-left: 4px;
+  & h6 {
+    color: $primary;
+  }
 }
 .rnp {
   display: flex;

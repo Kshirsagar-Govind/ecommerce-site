@@ -11,6 +11,7 @@ import axios from "axios";
 import CardScroller, {
   ScrollingCard,
 } from "./Containers/[ Container ]cardScroller";
+import { AverageRating } from "../Services/services";
 
 class ItemViewScreen extends Component {
   constructor(props) {
@@ -85,46 +86,49 @@ class ItemViewScreen extends Component {
       );
 
       this.setState({ reviews: res.data.reviews });
-      let one = 0;
-      let two = 0;
-      let three = 0;
-      let four = 0;
-      let five = 0;
-      res.data.reviews.map(item => {
-        if (item.rating == 1) {
-          one = one + 1;
-        } else if (item.rating == 2) {
-          two = two + 1;
-        } else if (item.rating == 3) {
-          three = three + 1;
-        } else if (item.rating == 4) {
-          four = four + 1;
-        } else if (item.rating == 5) {
-          five = five + 1;
-        }
-      });
+      // let one = 0;
+      // let two = 0;
+      // let three = 0;
+      // let four = 0;
+      // let five = 0;
 
-      let temp = [ one, two, three, four, five ];
+      // res.data.reviews.map(item => {
+      //   if (item.rating == 1) {
+      //     one = one + 1;
+      //   } else if (item.rating == 2) {
+      //     two = two + 1;
+      //   } else if (item.rating == 3) {
+      //     three = three + 1;
+      //   } else if (item.rating == 4) {
+      //     four = four + 1;
+      //   } else if (item.rating == 5) {
+      //     five = five + 1;
+      //   }
+      // });
 
-      let max = 0;
-      for (let i = 0; i < temp.length; i++) {
-        if (temp[i] > max) {
-          max = temp[i];
-        }
-      }
+      // let temp = [ one, two, three, four, five ];
 
-      const t = 1 * one + 2 * two + 3 * three + 4 * four + 5 * five;
-      const ar = one + two + three + four + five;
-      console.log(t / ar, "*/*/*/*/*/*");
+      // let max = 0;
+      // for (let i = 0; i < temp.length; i++) {
+      //   if (temp[i] > max) {
+      //     max = temp[i];
+      //   }
+      // }
+
+      // const t = 1 * one + 2 * two + 3 * three + 4 * four + 5 * five;
+      // const ar = one + two + three + four + five;
+      // console.log(t / ar, "*/*/*/*/*/*");
+
+      const readyRating = AverageRating(res.data.reviews);
 
       this.setState({
-        one_star: one,
-        two_star: two,
-        three_star: three,
-        four_star: four,
-        five_star: five,
-        max_count: max,
-        final_rating: t / ar,
+        one_star: readyRating.one,
+        two_star: readyRating.two,
+        three_star: readyRating.three,
+        four_star: readyRating.four,
+        five_star: readyRating.five,
+        max_count: readyRating.max,
+        final_rating: readyRating.final_rating,
       });
 
       // console.log(this.state);

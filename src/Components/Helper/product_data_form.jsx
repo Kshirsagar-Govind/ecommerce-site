@@ -3,26 +3,6 @@ import { useForm } from "react-hook-form";
 import classNames from "classnames";
 import axios from "axios";
 import "../CSS/master-css.scss";
-/*
-const detail = {
-  product_Name,
-  product_Price,
-  product_Tag,
-  product_Decsription,
-  product_Seller,
-  product_Priority,
-  product_buyCount,
-  imgURL,
-  RAM,
-  ROM,
-  Battery,
-  isTouchScreen,
-  Camera,
-  Display,
-  OS,
-  product_onBluetooth,
-};
-*/
 
 const ProductDataForm = () => {
   const { register, handleSubmit, setError, formState: { errors } } = useForm();
