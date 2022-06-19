@@ -1,11 +1,11 @@
 
-const GetAllUsers = async () => {
+export const GetAllUsers = async () => {
     const list = await fetch(`${process.env.REACT_APP_HOST}/get-users-list`);
     return await list.json();
 }
 
 
-const GetAllProducts = async () => {
+export const GetAllProducts = async () => {
     const list = await fetch(`${process.env.REACT_APP_HOST}/get-product-data`);
     return await list.json();
 }
