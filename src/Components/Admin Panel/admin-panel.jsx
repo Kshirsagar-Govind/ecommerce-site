@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { GetAllProducts, GetAllUsers } from "../../Services/UserAPIcalls";
 import ProductDataForm from "../Helper/product_data_form";
 
 class AdminPanel extends Component {
@@ -19,18 +18,15 @@ class AdminPanel extends Component {
   }
 
   GetUser = async () => {
-    // const t = await GetAllUsers();
-
     const list = await fetch(`${process.env.REACT_APP_HOST}/get-users-list`);
     const t = await list.json();
+    console.log(t);
     this.setState({
       users: t,
     });
   };
 
   GetProducts = async () => {
-    // const t = await GetAllProducts();
-
     const list = await fetch(`${process.env.REACT_APP_HOST}/get-product-data`);
     const t = await list.json();
     this.setState({
