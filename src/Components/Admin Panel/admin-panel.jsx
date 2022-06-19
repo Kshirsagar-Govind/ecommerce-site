@@ -19,15 +19,20 @@ class AdminPanel extends Component {
   }
 
   GetUser = async () => {
-    const t = await GetAllUsers();
+    // const t = await GetAllUsers();
+
+    const list = await fetch(`${process.env.REACT_APP_HOST}/get-users-list`);
+    const t = await await list.json();
     this.setState({
       users: t,
     });
   };
 
   GetProducts = async () => {
-    const t = await GetAllProducts();
-    console.log(t.data);
+    // const t = await GetAllProducts();
+
+    const list = await fetch(`${process.env.REACT_APP_HOST}/get-product-data`);
+    const t = await list.json();
     this.setState({
       products: t.data,
     });

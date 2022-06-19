@@ -10,4 +10,4 @@ export const GetAllProducts = async () => {
     return await list.json();
 }
 
-module.exports = { GetAllUsers, GetAllProducts }
+// module.exports = { GetAllUsers, GetAllProducts }
