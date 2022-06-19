@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 import ProductDataForm from "../Helper/product_data_form";
 
@@ -18,11 +19,13 @@ class AdminPanel extends Component {
   }
 
   GetUser = async () => {
-    const list = await fetch(`${process.env.REACT_APP_HOST}/get-users-list`);
-    const t = await list.json();
-    console.log(t);
+    const list = await axios.get(
+      `${process.env.REACT_APP_HOST}/get-users-list`
+    );
+    // const t = await list.json();
+    console.log(list);
     this.setState({
-      users: t,
+      users: list.data,
     });
   };
 
@@ -112,7 +115,9 @@ const UserTables = ({ Users }) => {
             <th style={{ fontSize: "16px" }}>Action</th>
           </tr>
         </thead>
-        <tbody>{Users.map(item => <UserRow user={item} />)}</tbody>
+        <tbody>
+          {Users.map(item => <UserRow key={Math.random()} user={item} />)}
+        </tbody>
       </table>
     </div>
   );
@@ -158,7 +163,11 @@ const ProductTables = ({ Products }) => {
             <th style={{ fontSize: "16px" }}> Action</th>
           </tr>
         </thead>
-        <tbody>{Products.map(item => <ProductRow Product={item} />)}</tbody>
+        <tbody>
+          {Products.map(item => (
+            <ProductRow key={Math.random()} Product={item} />
+          ))}
+        </tbody>
       </table>
     </div>
   );
