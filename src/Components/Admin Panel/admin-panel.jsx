@@ -22,7 +22,7 @@ class AdminPanel extends Component {
     // const t = await GetAllUsers();
 
     const list = await fetch(`${process.env.REACT_APP_HOST}/get-users-list`);
-    const t = await await list.json();
+    const t = await list.json();
     this.setState({
       users: t,
     });
