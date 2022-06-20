@@ -309,7 +309,11 @@ class ItemViewScreen extends Component {
                 <div>
                   <button
                     className="primary_button"
-                    onClick={() => this.setState({ showReviewForm: true })}
+                    onClick={() => {
+                      if (this.state.userData.id) {
+                        this.setState({ showReviewForm: true });
+                      } else alert("You Must Login First to review");
+                    }}
                   >
                     Write a Review...
                   </button>
