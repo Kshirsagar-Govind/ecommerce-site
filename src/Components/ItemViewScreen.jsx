@@ -242,9 +242,11 @@ class ItemViewScreen extends Component {
                   <button
                     className="special_button"
                     onClick={() => {
-                      window.open(
-                        `/pay-now/${this.props.singleProduct.data.product_id}`
-                      );
+                      if (this.state.userData.id) {
+                        window.open(
+                          `/pay-now/${this.props.singleProduct.data.product_id}`
+                        );
+                      } else alert("You must be logged in first");
                     }}
                   >
                     Buy
@@ -309,7 +311,11 @@ class ItemViewScreen extends Component {
                 <div>
                   <button
                     className="primary_button"
-                    onClick={() => this.setState({ showReviewForm: true })}
+                    onClick={() => {
+                      if (this.state.userData.id) {
+                        this.setState({ showReviewForm: true });
+                      } else alert("You Must Login First to review");
+                    }}
                   >
                     Write a Review...
                   </button>
