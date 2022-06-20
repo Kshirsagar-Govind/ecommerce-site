@@ -242,9 +242,11 @@ class ItemViewScreen extends Component {
                   <button
                     className="special_button"
                     onClick={() => {
-                      window.open(
-                        `/pay-now/${this.props.singleProduct.data.product_id}`
-                      );
+                      if (this.state.userData.id) {
+                        window.open(
+                          `/pay-now/${this.props.singleProduct.data.product_id}`
+                        );
+                      } else alert("You must be logged in first");
                     }}
                   >
                     Buy
