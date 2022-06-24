@@ -71,16 +71,17 @@ class PaymentScreen extends Component {
       };
       const res = await axios.post(
         `${process.env.REACT_APP_HOST}/product-purchased/${this.state.userData
-          .id}`
+          .id}`,
+        data
       );
       console.log(res);
       // alert("Order Placed Successfully");
 
-      console.log(
-        AlertCallback("SUCCESS", "Order Placed Successfully", "success")
+      this.alert_popup(
+        "SUCCESS",
+        "Order Placed Successfully, Check your mail inbox",
+        "success"
       );
-
-      this.alert_popup("SUCCESS", "Order Placed Successfully", "success");
     } catch (error) {
       console.error(error);
       this.alert_popup("ERROR", "Failed to Place your order", "error");
