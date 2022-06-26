@@ -337,7 +337,9 @@ class ItemViewScreen extends Component {
 
               <div className="reviews">
                 {this.state.reviews.length > 0 ? (
-                  this.state.reviews.map(item => <Review item={item} />)
+                  this.state.reviews.map(item => (
+                    <Review product_id={this.state.product_id} item={item} />
+                  ))
                 ) : (
                   <h1 className="lek-20-semi">No reviews</h1>
                 )}

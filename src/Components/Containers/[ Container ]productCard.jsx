@@ -25,6 +25,7 @@ const ProductCard = ({ product }) => {
     const res = await axios.get(
       `${process.env.REACT_APP_HOST}/get-product-review/${product.product_id}`
     );
+    if (!res.data) return;
     console.log(res.data.reviews);
     const readyRating = AverageRating(res.data.reviews);
     _setAvgRating(readyRating.final_rating);

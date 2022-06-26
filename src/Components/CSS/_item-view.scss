@@ -88,4 +88,10 @@
 }
 
 .helped-btn {
+  cursor: pointer;
+
+  height: 30px;
+}
+.unliked {
+  filter: contrast(10%);
 }
