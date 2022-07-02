@@ -7,6 +7,7 @@ class Review extends Component {
     super(props);
     this.state = {
       stars: [],
+      isLiked: false,
     };
   }
 
@@ -17,9 +18,19 @@ class Review extends Component {
     }
     this.setState({ stars: tem });
   }
-
+  isUserLikedThisReview = () => {
+    const found = this.props.item.likes.find(
+      item => item.user_id == this.props.userData.id
+    );
+    this.setState({
+      isLiked: found ? true : false,
+    });
+  };
   onLikingTheReview = async () => {
     try {
+      if (this.props.userData.name == "") {
+        return alert("You must be logged in");
+      }
       const addLike = await axios.post(
         `${process.env.REACT_APP_HOST}/like-the-review/${this.props.item
           .review_id}`,
@@ -54,7 +65,7 @@ class Review extends Component {
         <div className="d-flex helped-btn">
           <img
             onClick={() => this.onLikingTheReview()}
-            className="unliked"
+            className={this.state.isLiked ? "" : "unliked"}
             src={liked_icon}
             alt=""
             height="24"

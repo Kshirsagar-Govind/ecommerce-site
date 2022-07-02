@@ -106,9 +106,8 @@ export default connect(mapStateToProps, null)(Header);
 const Profile = ({ user }) => {
   const history = useHistory();
   const logout = () => {
-    alert("logout");
+    // alert("logout");
     localStorage.removeItem("persist:root");
-    history.push("/registration");
   };
   return (
     <div className="acc-popup">
@@ -120,10 +119,15 @@ const Profile = ({ user }) => {
           </a>
         </li>
         {user ? (
-          <li onClick={() => logout()}>
-            <img src={LogoutSVG} alt="" />
-            Logout
-          </li>
+          <a
+            style={{ textDecoration: "none", color: "inherit" }}
+            href="/registration"
+          >
+            <li onClick={() => logout()}>
+              <img src={LogoutSVG} alt="" />
+              Logout
+            </li>
+          </a>
         ) : (
           <li>
             <a href="/registration">
