@@ -265,9 +265,9 @@ class ItemViewScreen extends Component {
               Related Suggestions
             </h3>
 
-            {/* <div className="realted-suggestions-section">
+            <div className="realted-suggestions-section">
               <CardScroller />
-            </div> */}
+            </div>
             {/* <div className="line_1" /> */}
 
             <div className="rating-and-review-section">
