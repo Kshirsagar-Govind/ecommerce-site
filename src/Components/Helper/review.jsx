@@ -40,6 +40,7 @@ class Review extends Component {
         }
       );
       console.log(addLike);
+      this.props.reload();
     } catch (error) {
       console.error(error);
     }

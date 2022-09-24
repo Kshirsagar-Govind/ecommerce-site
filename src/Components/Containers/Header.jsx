@@ -49,7 +49,7 @@ class Header extends Component {
             GameShop
           </a>
         </div>
-        <div id="search_bar">
+        {/* <div id="search_bar">
           <input type="text" id="search_bar_input" placeholder="search" />
           <div
             id="searchIcon"
@@ -66,7 +66,7 @@ class Header extends Component {
           >
             <SearchIcon />
           </div>
-        </div>
+        </div> */}
         <div id="options">
           <div
             className="option"

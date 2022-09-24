@@ -58,7 +58,12 @@ const ProductCard = ({ product }) => {
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
                 </svg>
-                {rating}
+
+                {rating.toString().length == 1 ? (
+                  rating.toString() + ".0"
+                ) : (
+                  rating.toString().substr(0, 3)
+                )}
               </h6>
             </div>
             <h6 className="heading_6" style={{ marginLeft: "15px" }}>

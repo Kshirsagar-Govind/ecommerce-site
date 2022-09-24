@@ -318,7 +318,12 @@ class ItemViewScreen extends Component {
                       color: "#380000",
                     }}
                   >
-                    Rating and Reviews {this.state.final_rating}.0
+                    Rating and Reviews{" "}
+                    {this.state.final_rating.toString().length == 1 ? (
+                      this.state.final_rating.toString() + ".0"
+                    ) : (
+                      this.state.final_rating.toString().substr(0, 3)
+                    )}
                   </h3>
                   <RateMeter
                     rating={this.state.five_star / this.state.max_count * 100}
@@ -361,6 +366,7 @@ class ItemViewScreen extends Component {
                   {this.state.showReviewForm ? (
                     <div className="dark-back">
                       <ReviewPopup
+                        reload={this.getReviews}
                         data={{
                           user: this.state.userData,
                           product_id: this.state.product_id,
@@ -377,6 +383,7 @@ class ItemViewScreen extends Component {
                   {this.state.reviews.length > 0 ? (
                     this.state.reviews.map(item => (
                       <Review
+                        reload={this.getReviews}
                         userData={this.state.userData}
                         product_id={this.state.product_id}
                         item={item}
@@ -458,7 +465,10 @@ class ReviewPopup extends Component {
       `${process.env.REACT_APP_HOST}/submit-product-review`,
       dataToSend
     );
+
     console.log(res, "responce");
+    this.props.reload();
+    this.props.close();
   };
   render() {
     return (
