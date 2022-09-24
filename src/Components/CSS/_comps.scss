@@ -1,76 +1,71 @@
-
-@import './variables';
+@import "./variables";
 .lds-ring {
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
-  }
-  .lds-ring div {
+}
+.lds-ring div {
     box-sizing: border-box;
     display: block;
     position: absolute;
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #fff;
+    border: 8px solid $primary;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
-  }
-  .lds-ring div:nth-child(1) {
+    border-color: $primary transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
-  }
-  .lds-ring div:nth-child(2) {
+}
+.lds-ring div:nth-child(2) {
     animation-delay: -0.3s;
-  }
-  .lds-ring div:nth-child(3) {
+}
+.lds-ring div:nth-child(3) {
     animation-delay: -0.15s;
-  }
-  @keyframes lds-ring {
+}
+@keyframes lds-ring {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
 
-  
 .d-flex {
     display: flex;
-  }
-  .d-flex-ac {
+}
+.d-flex-ac {
     display: flex;
     align-items: center;
-  }
+}
 
-.just-center{
- display: flex;
+.just-center {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.registration-page{
+.registration-page {
     position: relative;
-// background-color: #fff;
+    // background-color: #fff;
     overflow: hidden;
     padding: 3rem;
-    & div{
-
+    & div {
         width: 100%;
     }
-    & div>h1{
-    position: relative;
-
-        
+    & div > h1 {
+        position: relative;
     }
 }
-.dark-back{
+.dark-back {
     position: fixed;
     top: 0;
     left: 0;
-    width:100vw;
+    width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -78,63 +73,62 @@
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 10;
 }
-.divider{
+.divider {
     // height:max-content;
     // width: 2rem;
     background-color: red;
     border: 2px solid red;
 }
 
-.registration-forms{
+.registration-forms {
     display: flex;
     // background-color: rgb(136, 136, 136);
     width: 100%;
     align-items: baseline;
-    padding:3rem;
-    
+    padding: 3rem;
 }
 
-.reg-form{
+.reg-form {
     // border: 2px solid red;
     width: 50%;
 }
 
-.input-div-2{
+.input-div-2 {
     width: inherit;
-    display:flex;
-     position:relative;
+    display: flex;
+    position: relative;
 
     flex-direction: column;
-// margin: 1rem 0;
-margin-top: 3rem;
-    & label{
-    font-size:1.6rem;
-    margin-bottom: 0.5rem;
+    // margin: 1rem 0;
+    margin-top: 3rem;
+    & label {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
     }
 
-    & input{
+    & input {
         border: 2px solid transparent;
         border-bottom: 2px solid;
-        position:relative;
+        position: relative;
         height: 4rem;
         outline: none;
         // border-radius: 0.8rem;
         padding: 0 0.5rem;
-        font-size:1.6rem;
-        font-weight:300;
+        font-size: 1.6rem;
+        font-weight: 300;
         width: 100%;
         background-color: transparent;
     }
-    & .error_input{
+    & .error_input {
         // border: 2px solid $error;
         // background-color: $error_light;
     }
-    & ::placeholder{
-        font-size:1.6rem;
-        font-weight:300;
+    & ::placeholder {
+        font-size: 1.6rem;
+        font-weight: 300;
         font-weight: 100;
     }
-    & input:focus{
+    & input:focus {
         // outline:  $primary;
         // background-color: rgb(246, 247, 255);
     }
@@ -148,63 +142,60 @@ margin-top: 3rem;
         width: 100%;
         cursor: pointer;
         text-transform: capitalize;
-        font-family: 'Rubik', sans-serif;
-      }
-      .primary_button_2:hover {
-    filter: brightness(110%);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      }
+        font-family: "Rubik", sans-serif;
+    }
+    .primary_button_2:hover {
+        filter: brightness(110%);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
 }
 
- 
-
-
-  .form-error{
- position: absolute;
- right: 10%;    
-//  top: 0;
-// border: 2px solid;
+.form-error {
+    position: absolute;
+    right: 10%;
+    //  top: 0;
+    // border: 2px solid;
 }
-.wish-list-wrapper{
+.wish-list-wrapper {
     width: 100%;
     height: 18rem;
     // height: max-content;
     height: 25rem;
     display: flex;
-padding:2rem;
-background-color: #fff;
+    padding: 2rem;
+    background-color: #fff;
     // align-items: center;
     margin: 2rem 0;
-    & .left-section{
-width: 100%;
-    // height: inherit;
-// border: 2px solid;
-display: flex;
-position: relative;
+    & .left-section {
+        width: 100%;
+        // height: inherit;
+        // border: 2px solid;
+        display: flex;
+        position: relative;
 
-& img{
-    width: 20%;
-    margin: 0 1rem;
-    border-radius:1rem;
-}
-& span{
-    padding:1rem 0;
-}
+        & img {
+            width: 20%;
+            margin: 0 1rem;
+            border-radius: 1rem;
+        }
+        & span {
+            padding: 1rem 0;
+        }
     }
 
-    & .right-section{
-    width: 20%;
-    height: 100%;
-    // border: 2px solid;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;  
-text-align: center;
-align-items: center;      
+    & .right-section {
+        width: 20%;
+        height: 100%;
+        // border: 2px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
     }
 }
 
-.acc-popup{
+.acc-popup {
     background-color: #fff;
     width: max-content;
     height: fit-content;
@@ -214,30 +205,29 @@ align-items: center;
     z-index: 2;
     box-shadow: $shadow_2;
     border-radius: 2rem;
-    & ul{
+    & ul {
         list-style: none;
-        & li{
+        & li {
             padding: 0.5rem 0;
-            padding:1rem 2rem;
-                display: flex;
-            font-size:1.6rem;
+            padding: 1rem 2rem;
+            display: flex;
+            font-size: 1.6rem;
             cursor: pointer;
             padding-top: 2rem;
-& a{
-    text-decoration: none;
-    display: flex;
+            & a {
+                text-decoration: none;
+                display: flex;
 
-    color: inherit;
-}
-            & img{
+                color: inherit;
+            }
+            & img {
                 padding-right: 1rem;
             }
         }
-        & li:hover{
+        & li:hover {
             // filter: brightness(10%)
-    border-radius: 2rem;
-    background-color: $bg_color;
-        
+            border-radius: 2rem;
+            background-color: $bg_color;
         }
     }
 }

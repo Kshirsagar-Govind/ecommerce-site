@@ -12,6 +12,7 @@ class WishListScreen extends Component {
     this.state = {
       userData: {},
       auth: false,
+      loading: false,
       wishlist: [],
     };
   }
@@ -19,8 +20,9 @@ class WishListScreen extends Component {
     if (this.state.userData.name == "") {
       return alert("Login First");
     }
-    this.setState({ auth: true });
+    this.setState({ auth: true, loading: true });
     this.getWishlist();
+    this.setState({ loading: false });
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -28,6 +30,7 @@ class WishListScreen extends Component {
       //Change in props
       return {
         userData: props.user,
+        loading: false,
       };
     }
     return null; // No change to state
@@ -51,16 +54,26 @@ class WishListScreen extends Component {
           <a href="/registration">Please Login</a>
         </div>
       );
+    } else if (this.state.loading) {
+      return (
+        <div className="dark-back just-center">
+          <Loader />
+        </div>
+      );
     } else
       return (
         <div>
           {this.state.wishlist.length > 0 ? (
             this.state.wishlist.map(item => (
-              <WishListItem product={item} user_id={this.state.userData.id} />
+              <WishListItem
+                reload={this.getWishlist}
+                product={item}
+                user_id={this.state.userData.id}
+              />
             ))
           ) : (
             <div className="just-center">
-              <Loader />
+              <h1>Empty Wishlist</h1>
             </div>
           )}
 
@@ -75,3 +88,8 @@ const mapStateToProps = state => {
   };
 };
 export default connect(mapStateToProps, null)(WishListScreen);
+/*
+return (
+     
+    );
+*/

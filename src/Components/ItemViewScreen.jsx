@@ -12,6 +12,8 @@ import CardScroller, {
   ScrollingCard,
 } from "./Containers/[ Container ]cardScroller";
 import { AverageRating } from "../Services/services";
+import Loader from "./Alerts/loader";
+import AlertPopup from "./Alerts/alert-popup";
 
 class ItemViewScreen extends Component {
   constructor(props) {
@@ -23,6 +25,8 @@ class ItemViewScreen extends Component {
       product_data: {},
       userData: {},
       showReviewForm: false,
+      showAlertPopup: false,
+      loading: false,
       rating: 0,
       one_star: 0,
       two_star: 0,
@@ -32,9 +36,21 @@ class ItemViewScreen extends Component {
       max_count: 0,
       reviews: [],
       final_rating: 0,
+      a_header: "",
+      a_msg: "",
+      a_type: "",
     };
   }
   // const {}= this.props.singleProduct.data;
+
+  alert_popup = (header, msg, type) => {
+    this.setState({
+      a_header: header,
+      a_msg: msg,
+      a_type: type,
+      showAlertPopup: true,
+    });
+  };
 
   componentDidMount() {
     this.props.getSingleProduct(this.state.product_id);
@@ -61,10 +77,14 @@ class ItemViewScreen extends Component {
       return alert("You Must Login First");
     }
     //
+    this.setState({ loading: true });
     const res = await axios.post(
       `${process.env.REACT_APP_HOST}/add-to-wishlist/${this.state.userData.id}`,
       { product_id: this.state.product_id }
     );
+    this.setState({ loading: false });
+    this.alert_popup("SUCCESS", "Item added to wishlist successfully", "info");
+
     console.log(res);
   };
   static getDerivedStateFromProps(props, state) {
@@ -139,222 +159,254 @@ class ItemViewScreen extends Component {
 
   render() {
     console.log(this.state.product_data);
-    return (
-      <div id="item-view-screen" className="item-view-section">
-        {this.props.singleProduct.data !== undefined ? (
-          <div>
-            <div id="view_n_feature">
-              <div className="img-section">
-                <img
-                  src={this.props.singleProduct.data.product_images[0].imgURL}
-                  width="500px"
-                  height="450px"
-                  alt=""
-                />
-              </div>
-              <div className="features-section">
-                <br />
-                <div className="just-space">
-                  <h1 className="heading_3">Product Name</h1>
-                  <button
-                    className="special_button"
-                    onClick={() => this.AddToWishlist()}
-                  >
-                    Add to Wishlist
-                  </button>
+    if (this.state.loading) {
+      return (
+        <div id="item-view-screen" className="item-view-section">
+          <div className=" just-center">
+            <Loader />
+          </div>
+        </div>
+      );
+    } else
+      return (
+        <div id="item-view-screen" className="item-view-section">
+          {this.props.singleProduct.data !== undefined ? (
+            <div>
+              <div id="view_n_feature">
+                <div className="img-section">
+                  <img
+                    src={this.props.singleProduct.data.product_images[0].imgURL}
+                    width="500px"
+                    height="450px"
+                    alt=""
+                  />
                 </div>
-
-                <br />
-                <div className="hr_line_1" />
-                <br />
-                <div className="features">
-                  <div className="features-list">
-                    <h3 className="heading_5">RAM</h3>
-                    <h3 className="heading_6">
-                      {this.props.singleProduct.data.product_features.RAM}GB
-                    </h3>
-                    <h3 className="heading_5">ROM </h3>
-                    <h3 className="heading_6">
-                      {this.props.singleProduct.data.product_features.ROM}GB
-                    </h3>
-                    <h3 className="heading_5">Battery </h3>
-                    <h3 className="heading_6">
-                      {
-                        this.props.singleProduct.data.product_features.Battery
-                      }mHz
-                    </h3>
-                    <h3 className="heading_5">Camera </h3>
-                    <h3 className="heading_6">
-                      {this.props.singleProduct.data.product_features.Camera}mp
-                    </h3>
-                    <h3 className="heading_5">Display </h3>
-                    <h3 className="heading_6">
-                      {this.props.singleProduct.data.product_features.Display}"
-                    </h3>
+                <div className="features-section">
+                  <br />
+                  <div className="just-space">
+                    <h1 className="heading_3">Product Name</h1>
+                    <button
+                      className="special_button"
+                      onClick={() => this.AddToWishlist()}
+                    >
+                      Add to Wishlist
+                    </button>
                   </div>
 
-                  <div className="features-list">
-                    <h3 className="heading_5">Seller</h3>
-                    <h3 className="heading_6">
-                      {this.props.singleProduct.data.product_Seller}
-                    </h3>
-                    <h3 className="heading_5">Tag</h3>
-                    <h3 className="heading_6">
-                      {this.props.singleProduct.data.product_Tag}
-                    </h3>
-                    <h3 className="heading_5">Battery </h3>
-                    <h3 className="heading_6">
-                      {
-                        this.props.singleProduct.data.product_features.Battery
-                      }mHz
-                    </h3>
-                    <h3 className="heading_5">Camera </h3>
-                    <h3 className="heading_6">
-                      {this.props.singleProduct.data.product_features.Camera}mp
-                    </h3>
-                    <h3 className="heading_5">Display </h3>
-                    <h3 className="heading_6">
-                      {this.props.singleProduct.data.product_features.Display}"
-                    </h3>
-                  </div>
-                </div>
-                <br />
+                  <br />
+                  <div className="hr_line_1" />
+                  <br />
+                  <div className="features">
+                    <div className="features-list">
+                      <h3 className="heading_5">RAM</h3>
+                      <h3 className="heading_6">
+                        {this.props.singleProduct.data.product_features.RAM}GB
+                      </h3>
+                      <h3 className="heading_5">ROM </h3>
+                      <h3 className="heading_6">
+                        {this.props.singleProduct.data.product_features.ROM}GB
+                      </h3>
+                      <h3 className="heading_5">Battery </h3>
+                      <h3 className="heading_6">
+                        {
+                          this.props.singleProduct.data.product_features.Battery
+                        }mHz
+                      </h3>
+                      <h3 className="heading_5">Camera </h3>
+                      <h3 className="heading_6">
+                        {
+                          this.props.singleProduct.data.product_features.Camera
+                        }mp
+                      </h3>
+                      <h3 className="heading_5">Display </h3>
+                      <h3 className="heading_6">
+                        {
+                          this.props.singleProduct.data.product_features.Display
+                        }"
+                      </h3>
+                    </div>
 
-                <div className="description_section">
-                  <h3 className="heading_5">Description </h3>
-                  <h3 className="heading_6">
-                    {this.props.singleProduct.data.product_Decsription}
-                  </h3>
-                </div>
-
-                <div className="price_section just-space">
-                  <div className="">
-                    <div className="d-flex">
-                      <h3 className="heading_4">Price - </h3>
-                      <div className="price-box">
-                        <h3 className="heading_4">
-                          {" "}
-                          {this.props.singleProduct.data.product_Price}/-{" "}
-                        </h3>
-                      </div>
+                    <div className="features-list">
+                      <h3 className="heading_5">Seller</h3>
+                      <h3 className="heading_6">
+                        {this.props.singleProduct.data.product_Seller}
+                      </h3>
+                      <h3 className="heading_5">Tag</h3>
+                      <h3 className="heading_6">
+                        {this.props.singleProduct.data.product_Tag}
+                      </h3>
+                      <h3 className="heading_5">Battery </h3>
+                      <h3 className="heading_6">
+                        {
+                          this.props.singleProduct.data.product_features.Battery
+                        }mHz
+                      </h3>
+                      <h3 className="heading_5">Camera </h3>
+                      <h3 className="heading_6">
+                        {
+                          this.props.singleProduct.data.product_features.Camera
+                        }mp
+                      </h3>
+                      <h3 className="heading_5">Display </h3>
+                      <h3 className="heading_6">
+                        {
+                          this.props.singleProduct.data.product_features.Display
+                        }"
+                      </h3>
                     </div>
                   </div>
-                  <button
-                    className="special_button"
-                    onClick={() => {
-                      if (this.state.userData.id) {
-                        window.open(
-                          `/pay-now/${this.props.singleProduct.data.product_id}`
-                        );
-                      } else alert("You must be logged in first");
-                    }}
-                  >
-                    Buy
-                  </button>
-                </div>
-              </div>
-            </div>
-            <h3
-              className="heading_2"
-              style={{
-                paddingLeft: "20px",
-                marginBottom: "10px",
-                color: "#380000",
-              }}
-            >
-              Related Suggestions
-            </h3>
+                  <br />
 
-            <div className="realted-suggestions-section">
-              <CardScroller />
-            </div>
-            {/* <div className="line_1" /> */}
-
-            <div className="rating-and-review-section">
-              <div className="rating-section">
-                <h3
-                  className="heading_2"
-                  style={{
-                    marginBottom: "10px",
-                    marginTop: "20px",
-                    color: "#380000",
-                  }}
-                >
-                  Rating and Reviews {this.state.final_rating}.0
-                </h3>
-                <RateMeter
-                  rating={this.state.five_star / this.state.max_count * 100}
-                  rate_count={this.state.five_star}
-                  star={"5"}
-                />
-                <RateMeter
-                  rating={this.state.four_star / this.state.max_count * 100}
-                  rate_count={this.state.four_star}
-                  star={"4"}
-                />
-                <RateMeter
-                  rating={this.state.three_star / this.state.max_count * 100}
-                  rate_count={this.state.three_star}
-                  star={"3"}
-                />
-                <RateMeter
-                  rating={this.state.two_star / this.state.max_count * 100}
-                  rate_count={this.state.two_star}
-                  star={"2"}
-                />
-                <RateMeter
-                  rating={this.state.one_star / this.state.max_count * 100}
-                  rate_count={this.state.one_star}
-                  star={"1"}
-                />
-                <br />
-                <div>
-                  <button
-                    className="primary_button"
-                    onClick={() => {
-                      if (this.state.userData.id) {
-                        this.setState({ showReviewForm: true });
-                      } else alert("You Must Login First to review");
-                    }}
-                  >
-                    Write a Review...
-                  </button>
-                </div>
-                {this.state.showReviewForm ? (
-                  <div className="dark-back">
-                    <ReviewPopup
-                      data={{
-                        user: this.state.userData,
-                        product_id: this.state.product_id,
-                      }}
-                      close={() => {
-                        this.setState({ showReviewForm: false });
-                      }}
-                    />
+                  <div className="description_section">
+                    <h3 className="heading_5">Description </h3>
+                    <h3 className="heading_6">
+                      {this.props.singleProduct.data.product_Decsription}
+                    </h3>
                   </div>
-                ) : null}
-              </div>
 
-              <div className="reviews">
-                {this.state.reviews.length > 0 ? (
-                  this.state.reviews.map(item => (
-                    <Review
-                      userData={this.state.userData}
-                      product_id={this.state.product_id}
-                      item={item}
-                    />
-                  ))
-                ) : (
-                  <h1 className="lek-20-semi">No reviews</h1>
-                )}
+                  <div className="price_section just-space">
+                    <div className="">
+                      <div className="d-flex">
+                        <h3 className="heading_4">Price - </h3>
+                        <div className="price-box">
+                          <h3 className="heading_4">
+                            {" "}
+                            {this.props.singleProduct.data.product_Price}/-{" "}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      className="special_button"
+                      onClick={() => {
+                        if (this.state.userData.id) {
+                          window.open(
+                            `/pay-now/${this.props.singleProduct.data
+                              .product_id}`
+                          );
+                        } else alert("You must be logged in first");
+                      }}
+                    >
+                      Buy
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <h3
+                className="heading_2"
+                style={{
+                  paddingLeft: "20px",
+                  marginBottom: "10px",
+                  color: "#380000",
+                }}
+              >
+                Related Suggestions
+              </h3>
+
+              <div className="realted-suggestions-section">
+                <CardScroller />
+              </div>
+              {/* <div className="line_1" /> */}
+
+              <div className="rating-and-review-section">
+                <div className="rating-section">
+                  <h3
+                    className="heading_2"
+                    style={{
+                      marginBottom: "10px",
+                      marginTop: "20px",
+                      color: "#380000",
+                    }}
+                  >
+                    Rating and Reviews {this.state.final_rating}.0
+                  </h3>
+                  <RateMeter
+                    rating={this.state.five_star / this.state.max_count * 100}
+                    rate_count={this.state.five_star}
+                    star={"5"}
+                  />
+                  <RateMeter
+                    rating={this.state.four_star / this.state.max_count * 100}
+                    rate_count={this.state.four_star}
+                    star={"4"}
+                  />
+                  <RateMeter
+                    rating={this.state.three_star / this.state.max_count * 100}
+                    rate_count={this.state.three_star}
+                    star={"3"}
+                  />
+                  <RateMeter
+                    rating={this.state.two_star / this.state.max_count * 100}
+                    rate_count={this.state.two_star}
+                    star={"2"}
+                  />
+                  <RateMeter
+                    rating={this.state.one_star / this.state.max_count * 100}
+                    rate_count={this.state.one_star}
+                    star={"1"}
+                  />
+                  <br />
+                  <div>
+                    <button
+                      className="primary_button"
+                      onClick={() => {
+                        if (this.state.userData.id) {
+                          this.setState({ showReviewForm: true });
+                        } else alert("You Must Login First to review");
+                      }}
+                    >
+                      Write a Review...
+                    </button>
+                  </div>
+                  {this.state.showReviewForm ? (
+                    <div className="dark-back">
+                      <ReviewPopup
+                        data={{
+                          user: this.state.userData,
+                          product_id: this.state.product_id,
+                        }}
+                        close={() => {
+                          this.setState({ showReviewForm: false });
+                        }}
+                      />
+                    </div>
+                  ) : null}
+                </div>
+
+                <div className="reviews">
+                  {this.state.reviews.length > 0 ? (
+                    this.state.reviews.map(item => (
+                      <Review
+                        userData={this.state.userData}
+                        product_id={this.state.product_id}
+                        item={item}
+                      />
+                    ))
+                  ) : (
+                    <h1 className="lek-20-semi">No reviews</h1>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          "Loading...."
-        )}
-      </div>
-    );
+          ) : (
+            "Loading...."
+          )}
+
+          {this.state.showAlertPopup ? (
+            <div className="dark-back">
+              <AlertPopup
+                heading={this.state.a_header}
+                message={this.state.a_msg}
+                ok={() => {
+                  this.setState({ showAlertPopup: false });
+                  // reload();
+                }}
+                type={this.state.a_type}
+              />
+            </div>
+          ) : null}
+        </div>
+      );
   }
 }
 const mapStateToProps = state => {
