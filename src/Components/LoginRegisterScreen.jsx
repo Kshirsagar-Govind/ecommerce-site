@@ -65,7 +65,7 @@ const Login = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="reg-form">
         <div className="input-div-2 m-yy-20">
           <label htmlFor="input-label-2" className="text_label">
-            Username {"gvnxyz@gmail.com"}
+            Username {"(gvnxyz@gmail.com)"}
           </label>{" "}
           <div className="d-flex-ac">
             <input
@@ -80,7 +80,7 @@ const Login = () => {
 
         <div className="input-div-2 m-yy-20">
           <label htmlFor="input-label-2" className="text_label">
-            Password {"123456"}
+            Password {"(123456)"}
           </label>
           <div className="d-flex-ac">
             <input
