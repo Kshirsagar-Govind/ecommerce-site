@@ -55,6 +55,7 @@ class ItemViewScreen extends Component {
   componentDidMount() {
     this.props.getSingleProduct(this.state.product_id);
     this.getReviews();
+    console.log( this.props.singleProduct);
     this.setState({
       reviews: [],
     });
@@ -71,6 +72,7 @@ class ItemViewScreen extends Component {
       return false;
     } else return true;
   }
+
 
   AddToWishlist = async () => {
     if (this.state.userData.name == "") {
@@ -104,43 +106,8 @@ class ItemViewScreen extends Component {
         `${process.env.REACT_APP_HOST}/get-product-review/${this.state
           .product_id}`
       );
-
-      this.setState({ reviews: res.data.reviews });
-      // let one = 0;
-      // let two = 0;
-      // let three = 0;
-      // let four = 0;
-      // let five = 0;
-
-      // res.data.reviews.map(item => {
-      //   if (item.rating == 1) {
-      //     one = one + 1;
-      //   } else if (item.rating == 2) {
-      //     two = two + 1;
-      //   } else if (item.rating == 3) {
-      //     three = three + 1;
-      //   } else if (item.rating == 4) {
-      //     four = four + 1;
-      //   } else if (item.rating == 5) {
-      //     five = five + 1;
-      //   }
-      // });
-
-      // let temp = [ one, two, three, four, five ];
-
-      // let max = 0;
-      // for (let i = 0; i < temp.length; i++) {
-      //   if (temp[i] > max) {
-      //     max = temp[i];
-      //   }
-      // }
-
-      // const t = 1 * one + 2 * two + 3 * three + 4 * four + 5 * five;
-      // const ar = one + two + three + four + five;
-      // console.log(t / ar, "*/*/*/*/*/*");
-
-      const readyRating = AverageRating(res.data.reviews);
-
+      this.setState({ reviews: res.data });
+      const readyRating = AverageRating(res.data);
       this.setState({
         one_star: readyRating.one,
         two_star: readyRating.two,
@@ -150,8 +117,6 @@ class ItemViewScreen extends Component {
         max_count: readyRating.max,
         final_rating: readyRating.final_rating,
       });
-
-      // console.log(this.state);
     } catch (error) {
       console.log(error);
     }
@@ -184,7 +149,7 @@ class ItemViewScreen extends Component {
                 <div className="features-section">
                   <br />
                   <div className="just-space">
-                    <h1 className="heading_3">Product Name</h1>
+                    <h1 className="heading_3">{this.props.singleProduct.data.product_Name}</h1>
                     <button
                       className="special_button"
                       onClick={() => this.AddToWishlist()}

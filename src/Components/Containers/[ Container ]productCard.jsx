@@ -26,9 +26,9 @@ const ProductCard = ({ product }) => {
       `${process.env.REACT_APP_HOST}/get-product-review/${product.product_id}`
     );
     if (!res.data) return;
-    console.log(res.data.reviews);
-    const readyRating = AverageRating(res.data.reviews);
-    _setAvgRating(readyRating.final_rating);
+    console.log(res.data);
+    const readyRating = AverageRating(res.data);
+    _setAvgRating(readyRating.final_rating?readyRating.final_rating:0);
   };
 
   return (

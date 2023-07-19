@@ -8,6 +8,7 @@ class Review extends Component {
     this.state = {
       stars: [],
       isLiked: false,
+      user_id: "",
     };
   }
 
@@ -16,11 +17,12 @@ class Review extends Component {
     for (let i = 0; i < this.props.item.rating; i++) {
       tem.push(0);
     }
-    this.setState({ stars: tem });
+    this.setState({ stars: tem, user_id: this.props.userData.id });
+    this.isUserLikedThisReview();
   }
   isUserLikedThisReview = () => {
     const found = this.props.item.likes.find(
-      item => item.user_id == this.props.userData.id
+      (item) => item == this.props.userData.id
     );
     this.setState({
       isLiked: found ? true : false,
@@ -31,33 +33,38 @@ class Review extends Component {
       if (this.props.userData.name == "") {
         return alert("You must be logged in");
       }
-      const addLike = await axios.post(
-        `${process.env.REACT_APP_HOST}/like-the-review/${this.props.item
-          .review_id}`,
+      await axios.post(
+        `${process.env.REACT_APP_HOST}/like-the-review/${this.props.item.review_id}`,
         {
           product_id: this.props.product_id,
-          user_id: this.props.item.user_id,
+          user_id: this.state.user_id,
         }
       );
-      console.log(addLike);
+      this.setState({
+        isLiked: !this.state.isLiked,
+      });
       this.props.reload();
     } catch (error) {
       console.error(error);
     }
   };
+
+
   render() {
     return (
       <div id="review">
         <div className="review_header">
           <div className="">
             <h4 className=" lek-18-semi"> {this.props.item.user_name}</h4>
-            <h5 className="heading_6 ">
+            {/* <h5 className="heading_6 ">
               Purchased On - {this.props.item.purchased_date}
-            </h5>
+            </h5> */}
           </div>
 
           <div className="stars d-flex-ac">
-            {this.state.stars.map(item => <StarIcon fill={true} />)}
+            {this.state.stars.map((item) => (
+              <StarIcon fill={true} />
+            ))}
           </div>
         </div>
         <br />
