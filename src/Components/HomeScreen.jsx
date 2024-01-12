@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import "../Components/CSS/master-css.scss";
 import AddvertiseSection from "./Containers/[ Container ]addSection";
 import ProductCard from "./Containers/[ Container ]productCard";
